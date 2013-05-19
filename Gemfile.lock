@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     builder (3.0.4)
+    chronic (0.9.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -37,6 +38,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    ensure_valid_encoding (0.5.3)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -50,8 +52,13 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    marc (0.5.0)
     mime-types (1.23)
     multi_json (1.7.3)
+    nokogiri (1.5.9)
+    openurl (0.4.3)
+      ensure_valid_encoding
+      marc
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -98,6 +105,9 @@ GEM
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    whenever (0.8.2)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -105,7 +115,10 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (= 3.2.2)
   jquery-rails (= 2.0.2)
+  nokogiri
+  openurl
   rails (= 3.2.13)
   sass-rails (= 3.2.5)
   sqlite3 (= 1.3.5)
   uglifier (= 1.2.3)
+  whenever

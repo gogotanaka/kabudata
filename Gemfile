@@ -15,5 +15,7 @@ group :assets do
 
   gem 'uglifier', '1.2.3'
 end
-
+gem 'nokogiri'
+gem 'openurl'
 gem 'jquery-rails', '2.0.2'
+gem 'whenever', :require => false

@@ -1,0 +1,38 @@
+ <%= link_to 'get!', {controller: 'welcome', action: 'get', code: "7203.t"}%>
+ <%= @stockCode %>
+  <%= @ip %>
+  <%= @doc %>
+  <%= @start %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>コード</th>
+      <th>銘柄</th>
+      <th>市場</th>
+      <th>株価</th>
+      <th>前日比</th>
+      <th>出来高</th>
+      <th>出来高前日比</th>
+      <th>始値</th>
+      <th>高値</th>
+      <th>安値</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @stocks.each do |stock| %>
+      <tr>
+        <td><%= stock.code %></td>
+        <td><%= stock.name %></td>
+        <td><%= stock.market %></td>
+        <td><%= stock.price %></td>
+        <td><%= stock.previousprice %></td>
+        <td><%= stock.volume %></td>
+        <td><%= stock.previousvolume %></td>
+        <td><%= stock.opening %></td>
+        <td><%= stock.high %></td>
+        <td><%= stock.low %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
