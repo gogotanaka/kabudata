@@ -36,6 +36,14 @@ class BatchUpdate
     
   end
 
+  def self.blog_count
+  	Blog.all.each do |blog|
+  		blog.in += blog.ins.count
+  		blog.save
+  		blog.ins.destroy_all
+  	end
+  end
+
   def self.update_track
     puts("==== " + Time.now.to_s + " ====")
 
@@ -57,6 +65,8 @@ class BatchUpdate
 
     puts("==== update done!!! ====")
   end
+
+
 
   def self.exist?(url)
     result = false

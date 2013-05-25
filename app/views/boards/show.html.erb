@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @board.title %>
+</p>
+
+<p>
+  <b>Stock:</b>
+  <%= @board.stock_id %>
+</p>
+
+<% @comment = Comment.new %>
+<%= form_for(@comment, url: post_comment_board_path(@board.id)) do |f| %>
+  <div class="field">
+    <%= f.label :sender %><br />
+    <%= f.text_field :sender %>
+  </div>
+  <div class="field">
+    <%= f.label :contents %><br />
+    <%= f.text_field :contents %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <%= @board.comments.to_a %>
+<% end %>

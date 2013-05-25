@@ -1,4 +1,21 @@
 Kabudata::Application.routes.draw do
+
+  resources :stock
+  resources :blogs do
+    member do
+      get :count_in
+    end
+  end
+  resources :boards do
+    member do
+      post :post_comment
+    end
+  end
+
+  root :to => 'welcome#index'
+  get "welcome/index"
+  get "welcome/address_index"
+  post "welcome/register_address"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -11,8 +28,6 @@ Kabudata::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :welcome
-
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -45,16 +60,9 @@ Kabudata::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :welcome do
-    member do
-      get :get
-    end
-  end
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'welcome#index'
-   get "welcome/index"
-   get "welcome/get"
 
   # See how all your routes lay out with "rake routes"
 

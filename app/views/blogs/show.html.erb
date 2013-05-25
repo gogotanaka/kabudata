@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @blog.url %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <b>Describe:</b>
+  <%= @blog.describe %>
+</p>
+<p>
+  <b>今日のイン</b>
+  <%= @blog.ins.count %>
+</p>
+<p>
+  <b>通算イン</b>
+  <%= @blog.in %>
+</p>
+<% s = (link_to "ブログランキング", {controller: "blogs", action: "count_in", id: @blog.id}).to_s %>
+<%= s %>
+<%= CGI::unescape(s) %>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>

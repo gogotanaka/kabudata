@@ -11,7 +11,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517111155) do
+ActiveRecord::Schema.define(:version => 20130523161522) do
+
+  create_table "blogs", :force => true do |t|
+    t.string   "url"
+    t.string   "title"
+    t.string   "describe"
+    t.integer  "in",         :default => 0
+    t.integer  "out",        :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  create_table "boards", :force => true do |t|
+    t.string   "title"
+    t.integer  "stock_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "sender"
+    t.string   "contents"
+    t.integer  "board_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ins", :force => true do |t|
+    t.integer  "blog_id"
+    t.string   "ip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "mailaddresses", :force => true do |t|
+    t.string   "address"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "stocks", :force => true do |t|
     t.integer  "code"
