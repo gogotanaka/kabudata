@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '3.2.13'
 
 group :development do
@@ -19,3 +18,8 @@ gem 'nokogiri'
 gem 'openurl'
 gem 'jquery-rails', '2.0.2'
 gem 'whenever', :require => false
+
+# Use unicorn as the app server
+gem 'unicorn'
+# Deploy with Capistrano
+gem 'capistrano'

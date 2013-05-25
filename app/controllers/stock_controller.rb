@@ -10,13 +10,13 @@ class StockController < ApplicationController
     end
     html = Nokogiri::HTML(page.read, nil, 'utf-8')
 
-   	url = html.css('div.to_yahoo_topic a')[0][:href]
+    url = "http://stocks.finance.yahoo.co.jp/stocks/detail/?code=#{@stock.code}"
     begin
       page = open(url)
     rescue OpenURI::HTTPError
       return
     end
     html = Nokogiri::HTML(page.read, nil, 'utf-8')
-    @doc = html.css("ul.listStyleOpen")[0].content
+    @doc = html.css("td.change")[0]
 	end
 end
