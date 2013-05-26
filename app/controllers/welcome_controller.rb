@@ -17,6 +17,10 @@ class WelcomeController < ApplicationController
   	redirect_to :back
   end
 
+  def show
+    @stocks = Stock.all[0..30]
+  end
+
   
 
   private 

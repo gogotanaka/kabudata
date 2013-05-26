@@ -1,0 +1,41 @@
+
+/* global function */
+
+$red-color: #CB2027;
+
+@mixin rounded-corners($radius: 3px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+.header {
+  width:1000px;
+  height:352px;
+  background-image : url(header.jpg);
+}
+
+.side_menu {
+  width:220px;
+  height:100px;
+  float:left;
+}
+
+.main {
+  width:780px;
+  height:100px;
+  float:left;
+}
+
+.web_container {
+  margin-right: auto;
+  margin-left: auto;
+  width:1000px;
+  height: 100%; 
+}
+.form {
+  
+  width:1000px;
+  padding-top: 250px;
+  text-align: center;
+}

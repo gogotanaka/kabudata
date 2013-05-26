@@ -11,7 +11,7 @@ Kabudata::Application.routes.draw do
       post :post_comment
     end
   end
-
+  resources :welcome
   root :to => 'welcome#index'
   get "welcome/index"
   get "welcome/address_index"
