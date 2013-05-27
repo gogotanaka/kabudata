@@ -24,7 +24,6 @@
 </p>
 <% s = (link_to "ブログランキング", {controller: "blogs", action: "count_in", id: @blog.id}).to_s %>
 <%= s %>
-<%= CGI::unescape(s) %>
-
+<textarea cols="40" rows="6"><%= CGI::unescape(s) %></textarea>
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>

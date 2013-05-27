@@ -19,6 +19,7 @@ class WelcomeController < ApplicationController
 
   def show
     @stocks = Stock.all[0..30]
+    @bar = "bar_" + params[:id] + ".jpg"
   end
 
   
