@@ -1,6 +1,7 @@
 Kabudata::Application.routes.draw do
 
   resources :stock
+
   resources :blogs do
     member do
       get :count_in
@@ -13,9 +14,15 @@ Kabudata::Application.routes.draw do
   end
   resources :welcome
   root :to => 'welcome#index'
-  get "welcome/index"
-  get "welcome/address_index"
-  post "welcome/register_address"
+  get "page/address_index"
+  get "page/consultant"
+  get "page/brokerage"
+  get "page/inquiry"
+  get "page/rise"
+  post "page/register_address"
+  match ':controller(/:action(/:id))(.:format)'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

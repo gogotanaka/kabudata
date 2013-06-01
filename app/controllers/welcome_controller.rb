@@ -12,11 +12,6 @@ class WelcomeController < ApplicationController
 	  @stocks = Stock.all.sort_by {|x| x.price.gsub(/(\d{0,3}),(\d{3})/, '\1\2').to_i }
   end
 
-  def register_address
-  	Mailaddress.create(address: params[:address])
-  	redirect_to :back
-  end
-
   def show
     @stocks = Stock.all[0..30]
     @bar = "bar_" + params[:id] + ".jpg"

@@ -1,27 +1,25 @@
-<h1>Listing blogs</h1>
 
 <table>
   <tr>
-    <th>Url</th>
-    <th>Title</th>
-    <th>Describe</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>順位</th>
+    <th>ページ名/紹介文</th>
+    <th>週間IN</th>
+    <th>週間OUT</th>
+    <th>月間IN</th>
   </tr>
 
-<% @blogs.each do |blog| %>
+<% @blogs.each.with_index(1) do |blog,i| %>
   <tr>
-    <td><%= blog.url %></td>
-    <td><%= blog.title %></td>
-    <td><%= blog.describe %></td>
+    <td><%= i %></td>
+    <td><%= blog.title %>/<%= blog.describe %></td>
+    <td><%= link_to 'Show', blog %></td>
     <td><%= link_to 'Show', blog %></td>
     <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-    <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New Blog', new_blog_path %>
+<% content_for :blog_menu do %>
+d
+<% end %>

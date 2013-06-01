@@ -19,4 +19,13 @@ class StockController < ApplicationController
     html = Nokogiri::HTML(page.read, nil, 'utf-8')
     @doc = html.css("td.change")[0]
 	end
+
+  def search
+    words = params[:words].gsub(/　/," ").split(nil)
+    @search_stocks = []
+    words.each do |word|
+      @search_stocks += Stock.where("name LIKE :word OR code LIKE :word", word: "%#{word}%")
+    end
+    @search_stocks.uniq!
+  end
 end

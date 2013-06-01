@@ -7,8 +7,58 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="web_container"> 
+		<div class="logo">
+			<%= image_tag('logo copy.jpg')%>
+		</div>
+	  <div class="header">
+	    <div class="form">
+	      <%= form_tag page_register_address_path, method: :post do %>
+	        <%= text_field_tag :address %>
+	        <%= submit_tag 'メルマガに登録' %>
+	      <% end %>
+	    </div>
+	  </div>
+	  <div class="header_menu">
+	  	<%= link_to "HOME", root_path %>
+	  	<%= link_to "投資顧問会社", page_consultant_path %>
+	  	<%= link_to "人気の証券界者ランキング", page_brokerage_path %>
+	  	<%= link_to "投資家ブログランキング", blogs_path %>
+	  	<%= link_to "口コミ情報交換掲示板", boards_path %>
+	  	<%= link_to "仕手株急騰銘柄", page_rise_path %>
+	  	<%= link_to "お問い合わせ", page_inquiry_path %>
+	  </div>
+	  <div class="side_menu">
+	  	<%= image_tag('line.jpg')%>
 
-<%= yield %>
+	    <%= form_tag controller: :stock, action: :search, id: 1, method: :post do %>
+	      <%= text_field_tag :words, "", placeholder: "Search", class: "search_form" %>
+	    <% end %>
+	  	<% if content_for?(:blog_menu) %>
+	  		<%= image_tag('blog_entry_bar.jpg')%>
+	  		<%= link_to 'New Blog', new_blog_path %>
+	  		<%= image_tag('blog_new_bar.jpg')%>
 
+	  	<% else %>
+		  	<%= image_tag('line.jpg')%>
+		    <%= image_tag('contents-guide.jpg')%>
+		    <%= link_to image_tag('rise_in_price_rate.jpg', {width: "220px"}), welcome_path(1) %>
+		    <%= link_to image_tag('fall_in_price_rate.jpg', {width: "220px"}), welcome_path(2) %>
+		    <%= image_tag('kugiri-line.jpg', {width: "220px"})%>
+		    <%= link_to image_tag('volume.jpg', {width: "220px"}), welcome_path(3) %>
+		    <%= link_to image_tag('rate_of_increase_of_volume.jpg', {width: "220px"}), welcome_path(4) %>
+		    <%= image_tag('kugiri-line.jpg', {width: "220px"})%>
+		    <%= link_to image_tag('increase_in_margin_buying.jpg', {width: "220px"}), welcome_path(5) %>
+		    <%= link_to image_tag('reduction_in_margin_buying.jpg', {width: "220px"}), welcome_path(6) %>
+		    <%= image_tag('kugiri-line.jpg', {width: "220px"})%>
+		    <%= link_to image_tag('increase_in_margin_sale.jpg', {width: "220px"}), welcome_path(7) %>
+		    <%= link_to image_tag('reduction_in_margin_sale.jpg', {width: "220px"}), welcome_path(8) %>
+		    <%= image_tag('kugiri-line.jpg', {width: "220px"})%>
+		  <% end %>
+	  </div>
+	  <div class="main">
+	  	<%= yield %>
+	  </div>
+	</div>
 </body>
 </html>

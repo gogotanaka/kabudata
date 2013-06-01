@@ -8,31 +8,35 @@ $red-color: #CB2027;
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
 }
-
-.header {
-  width:1000px;
-  height:352px;
-  background-image : url(header.jpg);
-}
-
-.side_menu {
-  width:220px;
-  height:100px;
-  float:left;
-}
-
-.main {
-  width:780px;
-  height:100px;
-  float:left;
-}
-
 .web_container {
   margin-right: auto;
   margin-left: auto;
   width:1000px;
   height: 100%; 
 }
+.header {
+  width:1000px;
+  height:352px;
+  background-image : url(header.jpg);
+}
+.logo {
+  width:1000px;
+  height:104px;
+  background-image : url(hedder_bg.jpg);
+}
+.side_menu {
+  width:256px;
+  float:left;
+  margin-right: 45px;
+  text-align: center;
+}
+
+.main {
+  width:680px;
+  float:left;
+}
+
+
 .form {
   
   width:1000px;
