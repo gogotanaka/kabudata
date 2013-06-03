@@ -36,7 +36,10 @@
 	    <% end %>
 	  	<% if content_for?(:blog_menu) %>
 	  		<%= image_tag('blog_entry_bar.jpg')%>
-	  		<%= link_to 'New Blog', new_blog_path %>
+	  		<%= form_tag new_blog_path, method: :get do %>
+	        <%= text_field_tag :url %>
+	      <%= submit_tag 'ブログを登録' %>
+	      <% end %>
 	  		<%= image_tag('blog_new_bar.jpg')%>
 
 	  	<% else %>

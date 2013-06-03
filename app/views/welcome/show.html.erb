@@ -1,1 +1,4 @@
 <%= image_tag(@bar)%>
+<% @codes.each do |code| %>
+	<%= Stock.find_by_code(code).name if Stock.find_by_code(code) %><br>
+<% end %>

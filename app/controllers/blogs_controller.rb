@@ -1,3 +1,5 @@
+require 'nokogiri'
+require 'open-uri'
 class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
@@ -24,8 +26,15 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   # GET /blogs/new.json
   def new
-    @blog = Blog.new
-
+    
+    begin
+      page = open(params[:url])
+    rescue OpenURI::HTTPError
+      return
+    end
+    html = Nokogiri::HTML(page.read)
+    @blog = Blog.new(url: params[:url], title: html.css('title')[0].content, describe: html.css('meta').select{|x| x[:name] = "description"}[0][:content])
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @blog }
@@ -87,8 +96,8 @@ class BlogsController < ApplicationController
     unless blog.ins.find_by_ip(ip)
       blog.ins.create(ip: ip)
     end
-
     redirect_to blog_path(blog)
-
   end
+
+
 end
