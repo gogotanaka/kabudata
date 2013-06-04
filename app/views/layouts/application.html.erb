@@ -7,6 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 	<div class="web_container"> 
 		<div class="logo">
 			<%= image_tag('logo copy.jpg')%>
@@ -61,8 +70,13 @@
 	  </div>
 	  <div class="main">
 	  	<%= image_tag('line_long.jpg')%>
+
+			<div class="fb-like" data-href="http://tousijyohou.jp" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+
 	  	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tousijyohou.jp/" data-lang="ja">ツイート</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
 	  	<%= image_tag('line_long.jpg')%>
 	  	<%= yield %>
 	  </div>
