@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523161522) do
+ActiveRecord::Schema.define(:version => 20130605074454) do
 
   create_table "blogs", :force => true do |t|
     t.string   "url"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20130523161522) do
     t.string   "describe"
     t.integer  "in",         :default => 0
     t.integer  "out",        :default => 0
+    t.integer  "week_in",    :default => 0
+    t.integer  "month_in",   :default => 0
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
@@ -34,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20130523161522) do
     t.string   "sender"
     t.string   "contents"
     t.integer  "board_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "inquiries", :force => true do |t|
+    t.string   "address"
+    t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

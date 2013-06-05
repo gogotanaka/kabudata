@@ -1,4 +1,35 @@
 <%= image_tag(@bar)%>
-<% @codes.each do |code| %>
-	<%= Stock.find_by_code(code).name if Stock.find_by_code(code) %><br>
-<% end %>
+
+
+<table class="stock_table">
+  <tr >
+    <th>順位</th>
+    <th>コード</th>
+    <th>市場</th>
+    <th>名称</th>
+    <th colspan="2">取引値</th>
+    <th colspan="2">前日比</th>
+    <th>出来高</th>
+    <th>更新</th>
+    <th>掲示板</th>
+  </tr>
+	<% @codes.each.with_index(1) do |code,i| %>
+		<% if Stock.find_by_code(code) %>
+			<% stock = Stock.find_by_code(code) %>
+		  <tr>
+		    <td><%= i %></td>
+		    <td><%= code %></td>
+		    <td><%= stock.market %></td>
+		    <td><%= stock.name %></td>
+		    <td><%= stock.opening %></td>
+		    <td><%=  %></td>
+		    <td><%= stock.price %></td>
+		    <td><%= stock.previousprice.to_i - stock.price.to_i %></td>
+		    <td><%= stock.volume %></td>
+		    <td><%=  %></td>
+		    <td><%=  %></td>
+		  </tr>
+		<% end %>
+	<% end %>
+
+</table>

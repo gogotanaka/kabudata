@@ -39,8 +39,24 @@ class BatchUpdate
   def self.blog_count
   	Blog.all.each do |blog|
   		blog.in += blog.ins.count
+  		blog.week_in += blog.ins.count
+  		blog.month_in += blog.ins.count
   		blog.save
   		blog.ins.destroy_all
+  	end
+  end
+
+  def self.blog_count_week
+  	Blog.all.each do |blog|
+  		blog.week_in = 0
+  		blog.save
+  	end
+  end
+
+  def self.blog_count_month
+  	Blog.all.each do |blog|
+  		blog.month_in = 0
+  		blog.save
   	end
   end
 

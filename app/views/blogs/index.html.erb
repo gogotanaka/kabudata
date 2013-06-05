@@ -6,15 +6,17 @@
     <th>週間IN</th>
     <th>週間OUT</th>
     <th>月間IN</th>
+    <th>通算IN</th>
   </tr>
 
 <% @blogs.each.with_index(1) do |blog,i| %>
   <tr>
     <td><%= i %></td>
     <td><%= blog.title %>/<%= blog.describe %></td>
-    <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+    <td><%= blog.week_in %></td>
+    <td><%= blog.out %></td>
+    <td><%= blog.month_in %></td>
+    <td><%= blog.in %></td>
   </tr>
 <% end %>
 </table>
