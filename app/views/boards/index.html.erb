@@ -1,7 +1,16 @@
 <div class="main">
   <%= image_tag("borads_top.jpg")%>
-  <h1>Listing boards</h1>
+  <div>
+    <% @boards.each do |board| %>
+      <%= link_to "【" + board.stock_id.to_s+ "】" + board.title + "  ", board %>
+    <% end %>
+  </div>
+  
 
+
+
+
+  <h1>==↓管理画面===</h1>
   <table>
     <tr>
       <th>Title</th>
@@ -21,8 +30,6 @@
     </tr>
   <% end %>
   </table>
-
   <br />
-
   <%= link_to 'New Board', new_board_path %>
 </div>

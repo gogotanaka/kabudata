@@ -1,34 +1,38 @@
-<div class="main">
-  <table class="stock_table">
-    <thead>
+
+<table class="stock_table">
+  <thead>
+    <tr>
+      <th>コード</th>
+      <th>銘柄</th>
+      <th>市場</th>
+      <th>株価</th>
+      <th>前日比</th>
+      <th>出来高</th>
+      <th>出来高前日比</th>
+      <th>始値</th>
+      <th>高値</th>
+      <th>安値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stocks[0..100].each do |stock| %>
       <tr>
-        <th>コード</th>
-        <th>銘柄</th>
-        <th>市場</th>
-        <th>株価</th>
-        <th>前日比</th>
-        <th>出来高</th>
-        <th>出来高前日比</th>
-        <th>始値</th>
-        <th>高値</th>
-        <th>安値</th>
+        <td><%= stock.code %></td>
+        <td><%= link_to stock.name, stock_path(stock.id) %></td>
+        <td><%= stock.market %></td>
+        <td><%= stock.price %></td>
+        <td><%= stock.previousprice %></td>
+        <td><%= stock.volume %></td>
+        <td><%= stock.previousvolume %></td>
+        <td><%= stock.opening %></td>
+        <td><%= stock.high %></td>
+        <td><%= stock.low %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @stocks[0..100].each do |stock| %>
-        <tr>
-          <td><%= stock.code %></td>
-          <td><%= link_to stock.name, stock_path(stock.id) %></td>
-          <td><%= stock.market %></td>
-          <td><%= stock.price %></td>
-          <td><%= stock.previousprice %></td>
-          <td><%= stock.volume %></td>
-          <td><%= stock.previousvolume %></td>
-          <td><%= stock.opening %></td>
-          <td><%= stock.high %></td>
-          <td><%= stock.low %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    <% end %>
+  </tbody>
+</table>
+
+<%= image_tag("welcome_hot.jpg")%>
+<%= image_tag("welcome_summary.jpg")%>
+<%= image_tag("welcome_top50.jpg")%>
+<%= image_tag("welcome_news.jpg")%>

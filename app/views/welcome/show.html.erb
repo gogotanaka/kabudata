@@ -21,10 +21,10 @@
 		    <td><%= code %></td>
 		    <td><%= stock.market %></td>
 		    <td><%= stock.name %></td>
-		    <td><%= stock.opening %></td>
-		    <td><%=  %></td>
 		    <td><%= stock.price %></td>
-		    <td><%= stock.previousprice.to_i - stock.price.to_i %></td>
+		    <td><%=  %></td>
+		    <td><%= stock.previousprice %></td>
+		    <td><%= compare(stock.previousprice,stock.price) %></td>
 		    <td><%= stock.volume %></td>
 		    <td><%=  %></td>
 		    <td><%=  %></td>

@@ -16,9 +16,9 @@ class WelcomeController < ApplicationController
     @bar = "bar_" + params[:id] + ".jpg"
     case params[:id].to_i
       
-    when 
+    when 1
       url = "http://info.finance.yahoo.co.jp/ranking/?kd=1&mk=1&tm=d&vl=a"
-    when 
+    when 2
       url = "http://info.finance.yahoo.co.jp/ranking/?kd=2&mk=1&tm=d&vl=a"
     when 3
       url = "http://info.finance.yahoo.co.jp/ranking/?kd=3&mk=1&tm=d&vl=a"

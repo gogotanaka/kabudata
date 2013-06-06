@@ -11,22 +11,24 @@
     <b>Stock:</b>
     <%= @board.stock_id %>
   </p>
-
+  <% @board.comments.each do |comment| %>
+    <%= comment.sender %>より<%= comment.created_at %><br>
+    <%= comment.contents %>
+  <% end %>
   <% @comment = Comment.new %>
   <%= form_for(@comment, url: post_comment_board_path(@board.id)) do |f| %>
     <div class="field">
-      <%= f.label :sender %><br />
-      <%= f.text_field :sender %>
+      お名前:<%= f.text_field :sender %>
     </div>
     <div class="field">
-      <%= f.label :contents %><br />
-      <%= f.text_field :contents %>
+      内容<br />
+      <%= f.text_area :contents, :size => "50x10" %>
     </div>
 
     <div class="actions">
       <%= f.submit %>
     </div>
 
-    <%= @board.comments.to_a %>
+    
   <% end %>
 </div>

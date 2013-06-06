@@ -16,10 +16,25 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+			<!-- Place this tag in your head or just before your close body tag. -->
+			<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+			  {lang: 'ja'}
+			</script>
+
+			<!-- Place this tag where you want the +1 button to render. -->
+
+
 	<div class="web_container"> 
 		<div class="logo">
-			<%= image_tag('logo copy.jpg')%>
+			<%= image_tag('logo_copy.jpg',class: "logo_mark")%>
+			<div class="logo_text">
+				<p>ここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくる</p>
+			</div>
 		</div>
+
 	  <div class="header">
 	    <div class="form">
 	      <%= form_tag page_register_address_path, method: :post do %>
@@ -49,6 +64,11 @@
 	        <%= text_field_tag :url %>
 	      <%= submit_tag 'ブログを登録' %>
 	      <% end %>
+	      <%= image_tag('banner_mini.jpg')%>
+	      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="株式投資ブログランキング"><img alt="Banner_mini" src="/assets/banner_mini.jpg" /></a></textarea>
+	      <%= image_tag('banner_large.jpg')%>
+	      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="株式投資ブログランキング"><img alt="Banner_laer" src="/assets/banner_large.jpg" /></a></textarea>
+	      
 	  		<%= image_tag('blog_new_bar.jpg')%>
 
 	  	<% else %>
@@ -74,8 +94,8 @@
 			<div class="fb-like" data-href="http://tousijyohou.jp" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
 
 	  	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tousijyohou.jp/" data-lang="ja">ツイート</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
+			<div class="g-plusone" data-href="http://tousijyohou.jp"></div>
 
 	  	<%= image_tag('line_long.jpg')%>
 	  	<%= yield %>

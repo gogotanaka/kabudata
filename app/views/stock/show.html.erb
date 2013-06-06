@@ -1,35 +1,12 @@
-<%= @stock.name %><br>
-<%= stock = @stock %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>コード</th>
-      <th>銘柄</th>
-      <th>市場</th>
-      <th>株価</th>
-      <th>前日比</th>
-      <th>出来高</th>
-      <th>出来高前日比</th>
-      <th>始値</th>
-      <th>高値</th>
-      <th>安値</th>
-      <th>前日比</th>
-      <th>安値</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><%= stock.code %></td>
-        <td><%= link_to stock.name, stock_path(stock.id) %></td>
-        <td><%= stock.market %></td>
-        <td><%= stock.price %></td>
-        <td><%= stock.previousprice %></td>
-        <td><%= stock.volume %></td>
-        <td><%= stock.previousvolume %></td>
-        <td><%= stock.opening %></td>
-        <td><%= stock.high %></td>
-        <td><%= stock.low %></td>
-        <td><%= @doc %></td>
-      </tr>
-  </tbody>
+<% stock = @stock %>
+<h1><%= stock.name %></h1>
+<table class="stock_info">
+  <tr><td>現在株価</td><td><%= stock.price %></td></tr>
+  <tr><td>前日比</td><td><%= stock.code %></td></tr>
+  <tr><td>前日終値</td><td><%= stock.previousprice %></td></tr>
+  <tr><td>始値</td><td><%= stock.opening %></td></tr>
+  <tr><td>高値</td><td><%= stock.high %></td></tr>
+  <tr><td>安値</td><td><%= stock.low %></td></tr>
+  <tr><td>出来高</td><td><%= stock.volume %></td></tr>
+  <tr><td>売買代金</td><td><%= stock.code %></td></tr>
 </table>
