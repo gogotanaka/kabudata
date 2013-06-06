@@ -10,7 +10,7 @@ class PageController < ApplicationController
 
   def inquiry_create
     @blog = Blog.create(params[:blog])
-    redirect_to :back
+    redirect_to controller: :page, action: :have_inquiried
   end
 
   def rise
