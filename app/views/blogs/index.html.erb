@@ -2,20 +2,28 @@
 <div>
   <p>ここに文章が入る</p>
 </div>
-<table>
+<table class="blog_table table-striped">
   <tr>
-    <th>順位</th>
-    <th>ページ名/紹介文</th>
-    <th>週間IN</th>
-    <th>週間OUT</th>
-    <th>月間IN</th>
-    <th>通算IN</th>
+    <th width="30">順位</th>
+    <th width="500">ページ名/紹介文</th>
+    <th width="30">週間IN</th>
+    <th width="30">週間OUT</th>
+    <th width="30">月間IN</th>
+    <th width="30">通算IN</th>
   </tr>
 
 <% @blogs.each.with_index(1) do |blog,i| %>
-  <tr>
+  <tr height="60px">
     <td><%= i %></td>
-    <td><%= blog.title %>/<%= blog.describe %></td>
+    <td>
+      <div class="image">
+        <%= image_tag(blog.image_url, {width: "60px",height: "60px"}) %>
+      </div>
+      <div class="title">
+        <%= link_to(blog.title,{controller: :blogs, action: :out, id: blog.id}) %>
+      </div>
+        <%= blog.describe %>
+    </td>
     <td><%= blog.week_in %></td>
     <td><%= blog.out %></td>
     <td><%= blog.month_in %></td>

@@ -4,7 +4,7 @@ Kabudata::Application.routes.draw do
 
   resources :blogs do
     member do
-      get :count_in
+      get :count_in, :out
     end
   end
   resources :boards do

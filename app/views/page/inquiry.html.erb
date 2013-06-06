@@ -1,15 +1,16 @@
 <%= image_tag('inquiry_bar.jpg')%>
-
-<%= form_for @inquiry, url: {action: 'inquiry_create'} do |f| %>
-  <table class="inquiry">
-    <tr>
-      <td>メールアドレス</td>
-      <td><%= f.text_field :address %></td>
-    </tr>
-    <tr>
-      <td>内容</td>
-      <td><%= f.text_area :content, size: "50x10" %></td>
-    </tr>
-  </table>
-  <%= f.submit %>
-<% end %>
+<div class="inquiry">
+  <%= form_for @inquiry, url: {action: 'inquiry_create'} do |f| %>
+    <table class="inquiry_table">
+      <tr>
+        <td class="colum">メールアドレス</td>
+        <td><%= f.text_field :address, size: 60 %></td>
+      </tr>
+      <tr class="text">
+        <td class="colum">お問い合わせ内容</td>
+        <td><%= f.text_area :content, size: "60x20" %></td>
+      </tr>
+    </table>
+    <%= f.submit "お問い合わせ送信", class: "submit" %>
+  <% end %>
+</div>

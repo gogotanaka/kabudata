@@ -2,14 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .inquiry {
+	text-align: center;
+	height: 600px;
+}
+.inquiry_table {
 	border-collapse: collapse;
-  th {
-    background-color: rgb(213,230,250);
-    border: 1px solid rgb(202,222,249);
-  }
+	tr {
+		height: 42px;
+	}
+	tr.text {
+		height: 240px;
+	}
   td {
-    border: 1px solid rgb(202,222,249);
+  	width: 520px;
+    border: 1px solid rgb(000,000,000);
+    text-align: left;
   }
+  td.colum {
+  	width: 158px;
+  	border: 1px solid rgb(000,000,000);
+    background-color: rgb(235,235,235);
+    text-align: center;
+  }
+}
+.submit {
+	margin-top: 20px;
+	margin-right: auto;
+  margin-left: auto;
 }

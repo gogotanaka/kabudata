@@ -99,5 +99,9 @@ class BlogsController < ApplicationController
     redirect_to blog_path(blog)
   end
 
+  def out
+    blog = Blog.find(params[:id])
+    redirect_to blog.url
+  end
 
 end
