@@ -5,11 +5,16 @@ def get_content(html, tag, className, index, childPath=nil)
 end
 class WelcomeController < ApplicationController
 	def index
-		start = Time.now.strftime("%M").to_i
-		
-		@start = 3609
-	  @ip = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_ip
-	  @stocks = Stock.all.sort_by {|x| x.price.gsub(/(\d{0,3}),(\d{3})/, '\1\2').to_i }
+	  @stocks = Stock.all
+    url = "http://stocks.finance.yahoo.co.jp"
+    begin
+      page = open(url)
+    rescue OpenURI::HTTPError
+      return
+    end
+    @market_info = Hash::new
+
+    @doc = Nokogiri::HTML(page.read).css("div.ymuiContainer")[0].content
   end
 
   def show
