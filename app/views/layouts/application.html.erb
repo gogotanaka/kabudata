@@ -1,105 +1,103 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Kabudata</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-
-			<!-- Place this tag in your head or just before your close body tag. -->
-			<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-			  {lang: 'ja'}
-			</script>
-
-			<!-- Place this tag where you want the +1 button to render. -->
-
-
-	<div class="web_container"> 
-		<div class="logo">
-			<%= image_tag('logo_copy.jpg',class: "logo_mark")%>
-			<div class="logo_text">
-				<p>ここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくる</p>
+	<head>
+	  <title>Kabudata</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		<!-- Place this tag in your head or just before your close body tag. -->
+		<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+		  {lang: 'ja'}
+		</script>
+		<div id="container"> 
+			<div class="inside"> 
+				<div id="logo_container" class="clearfix">
+					<%= image_tag('logo_copy.jpg',class: "logo_mark")%>
+					<div class="logo_text">
+						<p>ここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくるここに文章がくる</p>
+					</div>
+				</div>
+			  <div id="cover">
+			    <div id="cover_form">
+			      <%= form_tag page_register_address_path, method: :post do %>
+			        <%= text_field_tag :address, "", placeholder: "メールアドレスを入力してください", class: "field_large" %>
+			        <%= submit_tag '無料登録', class: "btn_primary btn_mini" %>
+			      <% end %>
+			    </div>
+			  </div>
+			  <ul id="menu" class="clearfix">
+			  	<li><%= link_to "HOME", root_path %></li>
+			  	<li><%= link_to "投資顧問会社", page_consultant_path %></li>
+			  	<li class="menu_little_large"><%= link_to "人気の証券界者ランキング", page_brokerage_path %></li>
+			  	<li><%= link_to "投資家ブログランキング", blogs_path %></li>
+			  	<li><%= link_to "口コミ情報交換掲示板", boards_path %></li>
+			  	<li><%= link_to "仕手株急騰銘柄", page_rise_path %></li>
+			  	<li><%= link_to "お問い合わせ", page_inquiry_path %></li>	
+			  </ul>
+			  <div id="main_container" class="clearfix">
+				  <div id="side_menu">
+				  	<div id="search_container">
+					    <%= form_tag controller: :stock, action: :search, id: 1, method: :post do %>
+					      <%= text_field_tag :words, "", placeholder: "投資顧問・銘柄検索", class: "search_form" %>
+					    <% end %>
+					    <div id="search_icon">
+					      <%= image_tag "search_icon.png", width: "20px" %>
+					    </div>
+					  </div>
+				  	<% if content_for?(:blog_menu) %>
+				  		<%= image_tag('blog_entry_bar.jpg')%>
+				  		<%= form_tag new_blog_path, method: :get do %>
+				        <%= text_field_tag :url %>
+				      	<%= submit_tag 'ブログを登録' %>
+				      <% end %>
+				      <%= image_tag('banner_mini.jpg')%>
+				      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="株式投資ブログランキング"><img alt="Banner_mini" src="/assets/banner_mini.jpg" /></a></textarea>
+				      <%= image_tag('banner_large.jpg')%>
+				      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="株式投資ブログランキング"><img alt="Banner_laer" src="/assets/banner_large.jpg" /></a></textarea>
+				  		<%= image_tag('blog_new_bar.jpg')%>
+				  	<% else %>
+					  	<div id= "contents_guide">
+						    <%= image_tag('contents-guide.jpg')%>
+						    <ul>
+						    	<li><%= link_to image_tag('rise_in_price_rate.jpg', {width: "220px"}), welcome_path(1) %></li>
+						    	<li><%= link_to image_tag('fall_in_price_rate.jpg', {width: "220px"}), welcome_path(2) %></li>
+						    	<%= image_tag('kugiri-line.jpg', {width: "220px"})%>
+						    	<li><%= link_to image_tag('volume.jpg', {width: "220px"}), welcome_path(3) %></li>
+						    	<li><%= link_to image_tag('rate_of_increase_of_volume.jpg', {width: "220px"}), welcome_path(4) %></li>
+						    	<%= image_tag('kugiri-line.jpg', {width: "220px"})%>
+						    	<li><%= link_to image_tag('increase_in_margin_buying.jpg', {width: "220px"}), welcome_path(5) %></li>
+						    	<li><%= link_to image_tag('reduction_in_margin_buying.jpg', {width: "220px"}), welcome_path(6) %></li>
+						    	<%= image_tag('kugiri-line.jpg', {width: "220px"})%>
+						    	<li><%= link_to image_tag('increase_in_margin_sale.jpg', {width: "220px"}), welcome_path(7) %></li>
+						    	<li><%= link_to image_tag('reduction_in_margin_sale.jpg', {width: "220px"}), welcome_path(8) %></li>
+						    	<%= image_tag('kugiri-line.jpg', {width: "220px"})%>
+						    	<li><%= image_tag('kisei_on.jpg', {width: "220px"})%></li>
+						    </ul>
+						  </div>
+					  <% end %>
+				  </div>
+				  <div id="main">
+				  	<div id="social_btn_container">
+							<div class="fb-like" data-href="http://tousijyohou.jp" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+					  	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tousijyohou.jp/" data-lang="ja">ツイート</a>
+							<div class="g-plusone" data-href="http://tousijyohou.jp"></div>
+						</div>
+				  	<%= yield %>
+				  </div>
+				</div>
 			</div>
 		</div>
-
-	  <div class="header">
-	    <div class="form">
-	      <%= form_tag page_register_address_path, method: :post do %>
-	        <%= text_field_tag :address %>
-	        <%= submit_tag 'メルマガに登録' %>
-	      <% end %>
-	    </div>
-	  </div>
-	  <div class="header_menu">
-	  	<%= link_to "HOME", root_path %>
-	  	<%= link_to "投資顧問会社", page_consultant_path %>
-	  	<%= link_to "人気の証券界者ランキング", page_brokerage_path %>
-	  	<%= link_to "投資家ブログランキング", blogs_path %>
-	  	<%= link_to "口コミ情報交換掲示板", boards_path %>
-	  	<%= link_to "仕手株急騰銘柄", page_rise_path %>
-	  	<%= link_to "お問い合わせ", page_inquiry_path %>
-	  </div>
-	  <div class="side_menu">
-	  	<%= image_tag('line.jpg')%>
-
-	    <%= form_tag controller: :stock, action: :search, id: 1, method: :post do %>
-	      <%= text_field_tag :words, "", placeholder: "Search", class: "search_form" %>
-	    <% end %>
-	  	<% if content_for?(:blog_menu) %>
-	  		<%= image_tag('blog_entry_bar.jpg')%>
-	  		<%= form_tag new_blog_path, method: :get do %>
-	        <%= text_field_tag :url %>
-	      <%= submit_tag 'ブログを登録' %>
-	      <% end %>
-	      <%= image_tag('banner_mini.jpg')%>
-	      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="株式投資ブログランキング"><img alt="Banner_mini" src="/assets/banner_mini.jpg" /></a></textarea>
-	      <%= image_tag('banner_large.jpg')%>
-	      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="株式投資ブログランキング"><img alt="Banner_laer" src="/assets/banner_large.jpg" /></a></textarea>
-	      
-	  		<%= image_tag('blog_new_bar.jpg')%>
-
-	  	<% else %>
-		  	<%= image_tag('line.jpg')%>
-		    <%= image_tag('contents-guide.jpg')%>
-		    <%= link_to image_tag('rise_in_price_rate.jpg', {width: "220px"}), welcome_path(1) %>
-		    <%= link_to image_tag('fall_in_price_rate.jpg', {width: "220px"}), welcome_path(2) %>
-		    <%= image_tag('kugiri-line.jpg', {width: "220px"})%>
-		    <%= link_to image_tag('volume.jpg', {width: "220px"}), welcome_path(3) %>
-		    <%= link_to image_tag('rate_of_increase_of_volume.jpg', {width: "220px"}), welcome_path(4) %>
-		    <%= image_tag('kugiri-line.jpg', {width: "220px"})%>
-		    <%= link_to image_tag('increase_in_margin_buying.jpg', {width: "220px"}), welcome_path(5) %>
-		    <%= link_to image_tag('reduction_in_margin_buying.jpg', {width: "220px"}), welcome_path(6) %>
-		    <%= image_tag('kugiri-line.jpg', {width: "220px"})%>
-		    <%= link_to image_tag('increase_in_margin_sale.jpg', {width: "220px"}), welcome_path(7) %>
-		    <%= link_to image_tag('reduction_in_margin_sale.jpg', {width: "220px"}), welcome_path(8) %>
-		    <%= image_tag('kugiri-line.jpg', {width: "220px"})%>
-		  <% end %>
-	  </div>
-	  <div class="main">
-	  	<%= image_tag('line_long.jpg')%>
-
-			<div class="fb-like" data-href="http://tousijyohou.jp" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-
-	  	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tousijyohou.jp/" data-lang="ja">ツイート</a>
-
-			<div class="g-plusone" data-href="http://tousijyohou.jp"></div>
-
-	  	<%= image_tag('line_long.jpg')%>
-	  	<%= yield %>
-	  </div>
-	</div>
-</body>
+	</body>
 </html>
