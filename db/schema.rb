@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20130605074454) do
     t.string   "opening"
     t.string   "high"
     t.string   "low"
+    t.string   "chart"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

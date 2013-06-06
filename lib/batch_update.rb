@@ -28,7 +28,8 @@ class BatchUpdate
           price: html.css('table.stocksTable td.stoksPrice')[1].content,
           name: html.css('table.stocksTable th.symbol h1').inner_text,
           code: x,
-          market: html.css('div.stocksDtlWp dd')[0].content
+          market: html.css('div.stocksDtlWp dd')[0].content,
+          chart: html.css("div.styleChart img")[0][:src]
           )
         @stock.save
       end
