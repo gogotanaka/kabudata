@@ -1,20 +1,34 @@
-<% stock = @stock %>
-<h1><%= stock.name %></h1>
-<table class="stock_info">
-  <tr><td>現在株価</td><td><%= stock.price %></td></tr>
-  <tr><td>前日比</td><td><%= stock.code %></td></tr>
-  <tr><td>前日終値</td><td><%= stock.previousprice %></td></tr>
-  <tr><td>始値</td><td><%= stock.opening %></td></tr>
-  <tr><td>高値</td><td><%= stock.high %></td></tr>
-  <tr><td>安値</td><td><%= stock.low %></td></tr>
-  <tr><td>出来高</td><td><%= stock.volume %></td></tr>
-  <tr><td>売買代金</td><td><%= stock.code %></td></tr>
-</table>
-<%= image_tag(stock.chart)%>
-<%= image_tag('stock_pickup.jpg')%>
-<%= image_tag('stock_blog.jpg')%>
-<%= image_tag('stock_twitter.jpg')%>
-<%= image_tag('stock_borad.jpg')%>
-<%= image_tag('stock_2ch.jpg')%>
-<%= image_tag('stock_2ch2.jpg')%>
-<%= image_tag('stock_textream.jpg')%>
+<div class="stock_container">
+  <% stock = @stock %>
+  <div class="stock_topic">
+    <h1>[6556]&nbsp;<%= stock.name %></h1>
+    <h2>マザーズ&nbsp;電気機器</h2>
+    <h3>半導体外観検査措置メーカー。精密基盤パターン装置に進出。</h3>
+  </div>
+  <div id="stock_info" class="clearfix">
+    <div id="stock_table">
+      <table class="">
+        <tr><td>現在株価</td><td class="font_blod stock_table_td_align"><%= stock.price %></td></tr>
+        <tr><td>前日比</td><td class="stock_table_td_align"><%= stock.code %></td></tr>
+        <tr><td>前日終値</td><td class="stock_table_td_align"><%= stock.previousprice %></td></tr>
+        <tr><td>始値</td><td class="stock_table_td_align"><%= stock.opening %></td></tr>
+        <tr><td>高値</td><td class="stock_table_td_align"><%= stock.high %></td></tr>
+        <tr><td>安値</td><td class="stock_table_td_align"><%= stock.low %></td></tr>
+        <tr><td>出来高</td><td class="stock_table_td_align"><%= stock.volume %></td></tr>
+        <tr><td>売買代金</td><td class="stock_table_td_align"><%= stock.code %></td></tr>
+      </table>
+    </div>
+    <div id="stock_chart_box">
+      <%= image_tag(stock.chart)%>
+    </div>
+  </div>
+  
+  
+  <%= image_tag('stock_pickup.jpg')%>
+  <%= image_tag('stock_blog.jpg')%>
+  <%= image_tag('stock_twitter.jpg')%>
+  <%= image_tag('stock_borad.jpg')%>
+  <%= image_tag('stock_2ch.jpg')%>
+  <%= image_tag('stock_2ch2.jpg')%>
+  <%= image_tag('stock_textream.jpg')%>
+</div>

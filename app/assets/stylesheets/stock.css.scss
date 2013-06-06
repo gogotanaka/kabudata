@@ -1,3 +1,46 @@
 // Place all the styles related to the stock controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.stock_container {
+  .stock_topic {
+    background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgb(33,91,137)), color-stop(100%, rgb(45,116,181)));
+    background:-webkit-linear-gradient(rgb(33,91,137), rgb(45,116,181));
+    background:-moz-linear-gradient(rgb(33,91,137), rgb(45,116,181));
+    background:-o-linear-gradient(rgb(33,91,137), rgb(45,116,181));
+    background:linear-gradient(rgb(33,91,137), rgb(45,116,181));
+    background-color: rgb(45,116,181);
+    padding: 10px;
+    h1 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    h2, h3 {
+      color: #fff;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+  }
+  #stock_info {
+    margin: 20px 0;
+    #stock_table {
+      width: 280px;
+      float: left;
+      table {
+        width: 100%;
+        tr {
+          height: 26px;
+          border-bottom: 1px solid #4183C4;
+        }
+        .stock_table_td_align {
+          text-align: right;
+        }
+      }
+    }
+    #stock_chart_box {
+      width: 360px;
+      float: left;
+      margin-left: 40px;
+    }
+  }
+}
