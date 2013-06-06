@@ -15,7 +15,15 @@
 <% @blogs.each.with_index(1) do |blog,i| %>
   <tr height="60px">
     <td><%= i %></td>
-    <td><%= blog.title %>/<%= blog.describe %></td>
+    <td>
+      <div class="image">
+        <%= image_tag(blog.image_url, {width: "60px",height: "60px"}) %>
+      </div>
+      <div class="title">
+        <%= link_to(blog.title,{controller: :blogs, action: :out, id: blog.id}) %>
+      </div>
+        <%= blog.describe %>
+    </td>
     <td><%= blog.week_in %></td>
     <td><%= blog.out %></td>
     <td><%= blog.month_in %></td>

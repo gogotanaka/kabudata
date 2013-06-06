@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130605074454) do
     t.integer  "out",        :default => 0
     t.integer  "week_in",    :default => 0
     t.integer  "month_in",   :default => 0
+    t.string   "image"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end

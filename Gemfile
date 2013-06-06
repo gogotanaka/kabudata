@@ -20,7 +20,8 @@ gem 'nokogiri'
 gem 'openurl'
 gem 'jquery-rails', '2.0.2'
 gem 'whenever', require: false
-
+gem 'carrierwave'
+gem "mini_magick"
 # Use unicorn as the app server
 gem 'unicorn'
 # Deploy with Capistrano
