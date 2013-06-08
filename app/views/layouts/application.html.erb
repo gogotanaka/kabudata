@@ -39,10 +39,11 @@
 			  </div>
 			  <ul id="menu" class="clearfix">
 			  	<li><%= link_to "HOME", root_path %></li>
-			  	<li><%= link_to "投資顧問会社", page_consultant_path %></li>
-			  	<li class="menu_little_large"><%= link_to "人気の証券界者ランキング", page_brokerage_path %></li>
+			  	<li><%= link_to "投資顧問会社ランキング", page_consultant_path %></li>
+			  	<li><%= link_to "証券界社ランキング", page_brokerage_path %></li>
 			  	<li><%= link_to "投資家ブログランキング", blogs_path %></li>
-			  	<li><%= link_to "口コミ情報交換掲示板", boards_path %></li>
+			  	<li><%= link_to "口コミ情報掲示板", boards_path %></li>
+			  	<li><%= link_to "投資顧問会社掲示板", {controller: :boards, action: :index_consul, id: 1} %></li>
 			  	<li><%= link_to "仕手株急騰銘柄", page_rise_path %></li>
 			  	<li><%= link_to "お問い合わせ", page_inquiry_path %></li>	
 			  </ul>

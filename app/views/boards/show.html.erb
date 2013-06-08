@@ -1,19 +1,25 @@
 <div class="main">
   <%= image_tag("borads_kobetu.jpg")%>
   <p id="notice"><%= notice %></p>
-
-  <p>
-    <b>Title:</b>
-    <%= @board.title %>
-  </p>
-
-  <p>
-    <b>Stock:</b>
-    <%= @board.stock_id %>
-  </p>
-  <% @board.comments.each do |comment| %>
-    <%= comment.sender %>より<%= comment.created_at %><br>
-    <%= comment.contents %>
+  <% if @board.stock_id %>
+    <h2><%= "【" + @board.stock_id.to_s+ "】" + @board.title + "の口コミ、投資情報" %></h2>
+  <% else %>
+    <%= @board.title + "の口コミ" %>
+  <% end %>
+  <div>
+    <% if @board.comments %>
+      <% comment = @board.comments[0] %>
+      <%= "1" %> <%= comment.sender %>　<%= complete_time(comment.created_at) %><br>
+      <%= comment.contents %>
+    <% end %>
+  </div>
+  <br>
+  <% @board.comments.delete_at(0) %>
+  <% @board.comments.each.with_index(2) do |comment,i| %>
+    <div>
+      <%= i %> <%= comment.sender %>　<%= complete_time(comment.created_at) %><br>
+      <%= comment.contents %>
+    </div>
   <% end %>
   <% @comment = Comment.new %>
   <%= form_for(@comment, url: post_comment_board_path(@board.id)) do |f| %>

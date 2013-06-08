@@ -1,14 +1,18 @@
 class BoardsController < ApplicationController
-  # GET /boards
-  # GET /boards.json
+
   def index
-    @boards = Board.all
+    @boards = Board.where("stock_id IS NOT NULL")
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @boards }
     end
   end
+
+  def index_consul
+    @boards = Board.where("stock_id IS NULL")
+  end
+
 
   # GET /boards/1
   # GET /boards/1.json
@@ -21,8 +25,15 @@ class BoardsController < ApplicationController
     end
   end
 
-  # GET /boards/new
-  # GET /boards/new.json
+  def new_consul
+    @board = Board.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @board }
+    end
+  end
+
   def new
     @board = Board.new
 
@@ -44,7 +55,7 @@ class BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.save
-        format.html { redirect_to @board, notice: 'Board was successfully created.' }
+        format.html { redirect_to @board, notice: '掲示板が作成されました。１つ目の書き込みをして下さい' }
         format.json { render json: @board, status: :created, location: @board }
       else
         format.html { render action: "new" }

@@ -3,7 +3,8 @@ class CreateBoards < ActiveRecord::Migration
     create_table :boards do |t|
       t.string :title
       t.integer :stock_id
-
+      t.integer :consul
+      t.string :image
       t.timestamps
     end
   end

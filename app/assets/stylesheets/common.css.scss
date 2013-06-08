@@ -204,7 +204,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 }
 ul#menu {
   li {
-    width: 142px;
+    width: 125px;
     border-right: 1px solid #cbcbcb;
     float: left;
     text-align: center;
@@ -233,9 +233,7 @@ ul#menu {
       }
     }
   }
-  li.menu_little_large {
-    width: 148px;
-  }
+
 }
 #main_container {
   padding: 20px;

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605074454) do
+ActiveRecord::Schema.define(:version => 20130608051209) do
 
   create_table "blogs", :force => true do |t|
     t.string   "url"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20130605074454) do
   create_table "boards", :force => true do |t|
     t.string   "title"
     t.integer  "stock_id"
+    t.integer  "consul"
+    t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -79,5 +81,12 @@ ActiveRecord::Schema.define(:version => 20130605074454) do
 
   add_index "stocks", ["code"], :name => "index_stocks_on_code"
   add_index "stocks", ["name"], :name => "index_stocks_on_name"
+
+  create_table "summaries", :force => true do |t|
+    t.string   "price"
+    t.string   "comparison"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
