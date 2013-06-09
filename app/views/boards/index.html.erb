@@ -1,15 +1,12 @@
-<div class="main">
-  <%= image_tag("borads_top.jpg")%>
-  <div>
+<div>
+  <%= image_tag "borads_top.jpg", width: "680px" %>
+  <div id="board_lists">
+    <h2>・スレッド</h2>
     <% @boards.each do |board| %>
-      <%= link_to "【" + board.stock_id.to_s+ "】" + board.title + "  ", board %>
+      <%= link_to "【" + board.stock_id.to_s + "】" + board.title, board, class: "white_link" %>&nbsp;
     <% end %>
+    <p><%= link_to "スレッド一覧はこちら", "", class: "btn" %></p>
   </div>
-  
-
-
-
-
   <h1>==↓管理画面===</h1>
   <table>
     <tr>

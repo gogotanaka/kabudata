@@ -1,3 +1,22 @@
 // Place all the styles related to the boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#board_lists {
+  background-color: #2980b9;
+  padding: 10px;
+  margin: 12px 0 20px 0;
+  h2 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  p {
+    text-align: right;
+    margin: 20px 0;
+  }
+  a.white_link {
+    color: #fff;
+  }
+}
