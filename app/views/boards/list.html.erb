@@ -1,0 +1,20 @@
+<h1>==↓管理画面===</h1>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Stock</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @boards.each do |board| %>
+    <tr>
+      <td><%= board.title %></td>
+      <td><%= board.stock_id %></td>
+      <td><%= link_to 'Show', board %></td>
+      <td><%= link_to 'Edit', edit_board_path(board) %></td>
+      <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>

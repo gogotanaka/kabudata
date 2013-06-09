@@ -9,6 +9,15 @@ class BoardsController < ApplicationController
     end
   end
 
+  def list
+    @boards = Board.where("stock_id IS NOT NULL")
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @boards }
+    end
+  end
+
   def index_consul
     @boards = Board.where("stock_id IS NULL")
   end

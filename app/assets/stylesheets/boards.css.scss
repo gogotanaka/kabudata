@@ -6,11 +6,8 @@ div#board_lists {
   background-color: #2980b9;
   padding: 10px;
   margin: 12px 0 20px 0;
-  h2 {
-    color: #fff;
-    margin-bottom: 8px;
-    font-size: 16px;
-    font-weight: bold;
+  #list {
+    line-height: 19px;
   }
   p {
     text-align: right;
@@ -19,4 +16,64 @@ div#board_lists {
   a.white_link {
     color: #fff;
   }
+}
+div.board_comment_container {
+  margin: 12px 0 20px;
+  h1, h2 {
+    background-color: #2980b9;
+    padding: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .comments_container {
+    background-color: #ecf0f1;
+    padding: 10px;
+    .commenter_container {
+      margin-bottom: 14px;
+      .commenter {
+        margin-bottom: 7px;
+        .number {
+          color: #888;
+          font-size: 15px;
+          font-weight: bold;
+          margin-right: 4px;
+        }
+        .name {
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+      .contents {
+        line-height: 19px;
+      }
+    }
+  }
+  .comments_top {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    #first_comment {
+      width: 340px;
+      float: left;
+      margin-right: 20px;
+    }
+    .new_comment_container {
+      width: 300px;
+      float: left;
+      border-left: 1px solid #ccc;
+      padding-left: 20px;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      h3 {
+        font-weight: bold;
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .after_second_comments {
+    border-top: 1px solid #fff;
+    padding-top: 10px;
+  }
+  
 }
