@@ -10,6 +10,16 @@ class StockController < ApplicationController
     end
     html = Nokogiri::HTML(page.read, nil, 'utf-8')
     @doc = html.css("div.styleChart img")[0][:src]
+
+    url = "http://kabu-sokuhou.com/brand/item/code___" + @stock.code.to_s
+    begin
+      page = open(url)
+    rescue OpenURI::HTTPError
+      return
+    end
+    html = Nokogiri::HTML(page.read, nil, 'utf-8')
+
+    
 	end
 
   def search
