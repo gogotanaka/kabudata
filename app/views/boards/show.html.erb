@@ -7,7 +7,7 @@
     <%= @board.title + "の口コミ" %>
   <% end %>
   <div>
-    <% if @board.comments %>
+    <% if @board.comments[0] %>
       <% comment = @board.comments[0] %>
       <%= "1" %> <%= comment.sender %>　<%= complete_time(comment.created_at) %><br>
       <%= comment.contents %>
