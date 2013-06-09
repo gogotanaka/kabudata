@@ -11,6 +11,7 @@ set :use_sudo, false
 set :scm, "git"
 set :repository, "git@bitbucket.org:tanakakazuki/#{application}.git"
 set :branch, "master"
+set :shared_children, shared_children + %w{public/uploads}
 
 set :whenever_command, "bundle exec whenever"
 require 'whenever/capistrano'
