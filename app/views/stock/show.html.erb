@@ -27,11 +27,25 @@
   <%= image_tag('stock_pickup.jpg')%>
   <%= image_tag('stock_blog.jpg')%>
   <%= image_tag('stock_twitter.jpg')%>
+    <% @twitter.each do |item| %>
+      <div>
+        <%= item[0].html_safe %><br>
+        <%= item[1] %>
+      </div><br>
+    <% end %>
   <%= image_tag('stock_borad.jpg')%>
   <%= image_tag('stock_2ch.jpg')%>
   <%= image_tag('stock_2ch2.jpg')%>
   <%= image_tag('stock_textream.jpg')%>
   <div>
-    <%= @yahoo.html_safe %>
+    <% @yahoo.each do |item| %>
+      <div>
+        <%= item[0] %><br>
+        <%= item[1] %><br>
+        <%= item[2] %><br>
+        <%= item[3] %><br>
+        <%= item[4].html_safe %>
+      </div><br>
+    <% end %>
   </div>
 </div>
