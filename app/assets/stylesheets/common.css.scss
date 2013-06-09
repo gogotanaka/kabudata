@@ -40,6 +40,9 @@ a:hover img{
   filter:alpha(opacity=80);
   -ms-filter: "alpha( opacity=80 )";
 }
+.times {
+  font-family: "Times New Roman",Times,"Ryumin Medium KL","ヒラギノ明朝 Pro W3","Hiragino Mincho Pro","メイリオ","ＭＳ Ｐ明朝",serif;
+}
 .clearfix:after {
     clear: both;
     content: " ";
@@ -281,3 +284,14 @@ ul#menu {
   }
 }
 
+.field_block {
+  margin: 5px 0 15px;
+  .field_label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .field_wide {
+    display: block;
+    width: 100%;
+  }
+}

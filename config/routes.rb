@@ -7,11 +7,16 @@ Kabudata::Application.routes.draw do
       get :count_in, :out
     end
   end
+
   resources :boards do
     member do
       post :post_comment
     end
+    collection do
+      get 'list'
+    end
   end
+
   resources :welcome
   root :to => 'welcome#index'
   get "page/address_index"

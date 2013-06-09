@@ -1,40 +1,49 @@
-<div class="main">
-  <%= image_tag("borads_kobetu.jpg")%>
-  <p id="notice"><%= notice %></p>
-  <% if @board.stock_id %>
-    <h2><%= "【" + @board.stock_id.to_s+ "】" + @board.title + "の口コミ、投資情報" %></h2>
-  <% else %>
-    <%= @board.title + "の口コミ" %>
-  <% end %>
-  <div>
-    <% if @board.comments[0] %>
-      <% comment = @board.comments[0] %>
-      <%= "1" %> <%= comment.sender %>　<%= complete_time(comment.created_at) %><br>
-      <%= comment.contents %>
+<div>
+  <%= image_tag "borads_kobetu.jpg", width: "680px"%>
+  <div class="board_comment_container">
+    <% if @board.stock_id %>
+      <h1><%= "【" + @board.stock_id.to_s+ "】" + @board.title + "の口コミ、投資情報" %></h1>
+    <% else %>
+      <h1><%= @board.title + "の口コミ" %></h1>
     <% end %>
+    <div class="comments_container">
+      <div class="clearfix comments_top">
+        <div id="first_comment">
+          <% if @board.comments[0] %>
+            <div class="commenter_container">
+              <% comment = @board.comments[0] %>
+              <div class="commenter"><span class="number times"><%= "1" %></span><span class="name"><%= comment.sender %></span>&nbsp;<%= complete_time(comment.created_at) %></div>
+              <div class="contents"><%= comment.contents %></div>
+            </div>
+          <% end %>
+        </div>
+        <div class="new_comment_container">
+          <h3>投稿する</h3>
+          <% @comment = Comment.new %>
+          <%= form_for(@comment, url: post_comment_board_path(@board.id)) do |f| %>
+            <div class="field_block">
+              <div class="field_label">名前</div>
+              <%= f.text_field :sender, class: "field_wide" %>
+            </div>
+            <div class="field_block">
+              <div class="field_label">内容</div>
+              <%= f.text_area :contents, rows: "4", class: "field_wide" %>
+            </div>
+            <%= f.submit "投稿", class: "btn_primary" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="after_second_comments">
+        <% @board.comments.delete_at(0) %>
+        <% @board.comments.each.with_index(2) do |comment, i| %>
+          <div class="commenter_container">
+            <div class="commenter">
+              <span class="number times"><%= i %></span><span class="name"><%= comment.sender %></span>&nbsp;<%= complete_time(comment.created_at) %>
+            </div>
+            <div class="contents"><%= comment.contents %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <br>
-  <% @board.comments.delete_at(0) %>
-  <% @board.comments.each.with_index(2) do |comment,i| %>
-    <div>
-      <%= i %> <%= comment.sender %>　<%= complete_time(comment.created_at) %><br>
-      <%= comment.contents %>
-    </div>
-  <% end %>
-  <% @comment = Comment.new %>
-  <%= form_for(@comment, url: post_comment_board_path(@board.id)) do |f| %>
-    <div class="field">
-      お名前:<%= f.text_field :sender %>
-    </div>
-    <div class="field">
-      内容<br />
-      <%= f.text_area :contents, :size => "50x10" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-
-    
-  <% end %>
 </div>
