@@ -1,6 +1,11 @@
 class AdminController < ApplicationController
 
 	def board
+		@boards = Board.where("stock_id IS NOT NULL")
+	end
+
+	def consul_board
+		@boards = Board.where("stock_id IS NULL")
 	end
 
 	def blog

@@ -18,7 +18,7 @@ class StockController < ApplicationController
       return
     end
     html = Nokogiri::HTML(page.read, nil, 'utf-8')
-
+    @yahoo = html.css("div#yahoo_item_block").to_html
     
 	end
 
