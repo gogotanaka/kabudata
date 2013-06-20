@@ -295,3 +295,14 @@ ul#menu {
     width: 100%;
   }
 }
+
+.detail {
+  text-align: left;
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid rgb(220,220,220);
+  background-color: #f0f0f0;
+  p {
+  padding: 2px;
+  }
+}

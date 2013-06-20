@@ -1,5 +1,10 @@
 <%= image_tag('inquiry_bar.jpg')%>
 <div class="inquiry">
+  <div class="detail">
+    <p>広告掲載に関して、情報の投稿方法、ブログランキングの参加方法など、ご不明な点はお気軽にお問い合わせ下さい。</p>
+    <p>※当サイトは投資顧問業では御座いませんので、掲載情報の正否確認や銘柄の個別相談には返答できません。</p>
+    <p>ご了承願います。</p>
+  </div>
   <%= form_for @inquiry, url: {action: 'inquiry_create'} do |f| %>
     <table class="inquiry_table">
       <tr>
