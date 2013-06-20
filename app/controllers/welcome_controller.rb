@@ -68,7 +68,21 @@ class WelcomeController < ApplicationController
     rescue OpenURI::HTTPError
       return
     end
-    @codes = Nokogiri::HTML(page.read).css("tr.rankingTabledata").map{|x| x.css("td")[1].content }
+    html = Nokogiri::HTML(page.read)
+    @ths = html.css("table.rankingTable tr.rankingTablettl")[0].css("th")
+    @impo = @ths.map do |x|
+      unless x[:colspan].to_i == 1
+        x[:colspan].to_i
+      else
+        1
+      end
+    end
+    @ths = @ths.map{|x| x.text }
+    @ths.delete_at(-1)
+    @tds = html.css("tr.rankingTabledata").map{|x| x.css("td").map{|y| y.text} }
+    @tds.each{|x| x.delete_at(-1)}
+    
+
   end
 
   private 
