@@ -2,6 +2,11 @@
 	<p>仕手筋、投資ファンド、機関投資家、多数の情報網から得た投資情報をレポート形式で無料公開しております。基本、毎日更新となりますのでご期待下さい。</p>
 </div>
 <%= image_tag('rise_bar.jpg')%>
-
-
-<%= image_tag('rise_report_bar.jpg')%>
+<% Piece.all.each do |piece| %>
+	<div class="piece">
+		<div class="title"><%= piece.title %></div>
+		
+		<br>
+		<%= piece.contents.html_safe %>
+	</div>
+<% end %>

@@ -12,7 +12,7 @@ class WelcomeController < ApplicationController
     rescue OpenURI::HTTPError
       return
     end
-    @codes = Nokogiri::HTML(page.read).css("tr.rankingTabledata").map{|x| x.css("td")[1].content }
+    @codes = Nokogiri::HTML(page.read).css("tr.rankingTabledata").map{|x| x.css("td")[1].content }[0..10]
 
     url = "http://news.finance.yahoo.co.jp/category/bus_all/"
     begin

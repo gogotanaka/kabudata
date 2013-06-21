@@ -21,4 +21,13 @@ class AdminController < ApplicationController
 	def inquiry
 		@inquiry = Inquiry.all
 	end
+
+	def piece
+		@piece = Piece.new
+	end
+
+	def create_piece
+		Piece.create(params[:piece])
+		redirect_to :back
+	end
 end
