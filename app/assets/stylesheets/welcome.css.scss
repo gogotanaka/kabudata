@@ -23,6 +23,31 @@
   .box {
     border: 1px solid #ccc;
     padding: 20px;
+
+
+
+    #info_table {
+      width: 280px;
+      float: left;
+      table {
+        width: 100%;
+        tr {
+          height: 26px;
+          border-bottom: 1px solid #4183C4;
+        }
+        .stock_table_td_align {
+          text-align: right;
+        }
+      }
+    }
+    #stock_chart_box {
+      width: 260px;
+      float: left;
+      margin-left: 10px;
+    }
+
+
+
   }
 }
 .stock_table {
