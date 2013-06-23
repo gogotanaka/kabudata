@@ -5,29 +5,34 @@
 </div>
 <table class="blog_table table-striped">
   <tr>
-    <th width="30">順位</th>
-    <th width="500">ページ名/紹介文</th>
-    <th width="30">週間IN</th>
-    <th width="30">週間OUT</th>
-    <th width="30">月間IN</th>
-    <th width="30">通算IN</th>
+    <th width="40px">順位</th>
+    <th width="60px"></th>
+    <th>ページ名/紹介文</th>
+    <th width="40px">週間<br>IN</th>
+    <th width="40px">週間<br>OUT</th>
+    <th width="40px">通算<br>IN</th>
   </tr>
 
 <% @blogs.each.with_index(1) do |blog,i| %>
-  <tr height="60px">
-    <td><%= i %></td>
+  <tr>
+    <td class="rank"><%= i %></td>
+    <td class="image"><%= image_tag(blog.image_url, {width: "60px",height: "60px"}) %></td>
     <td>
-      <div class="image">
-        <%= image_tag(blog.image_url, {width: "60px",height: "60px"}) %>
-      </div>
       <div class="title">
         <%= link_to(blog.title,{controller: :blogs, action: :out, id: blog.id}) %>
       </div>
-        <%= blog.describe %>
+      <div class="entry">
+        <% blog.entries.each do |entry| %>
+          <%= entry.published.strftime("%Y年%m月%d日 %H:%M:%S") %><br>
+          <%= link_to entry.title, entry.url %>
+          <br><br>
+        <% end %>
+      </div>
+      
+      <%= blog.describe %>
     </td>
     <td><%= blog.week_in %></td>
     <td><%= blog.out %></td>
-    <td><%= blog.month_in %></td>
     <td><%= blog.in %></td>
   </tr>
 <% end %>

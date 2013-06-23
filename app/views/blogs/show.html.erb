@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <b>Url:</b>
   <%= @blog.url %>
 </p>
-
+<p>
+  <b>Rss:</b>
+  <%= @blog.rss %>
+</p>
 <p>
   <b>Title:</b>
   <%= @blog.title %>
@@ -25,5 +27,8 @@
 <% s = (link_to "ブログランキング", {controller: "blogs", action: "count_in", id: @blog.id}).to_s %>
 <%= s %>
 <textarea cols="40" rows="6"><%= CGI::unescape(s) %></textarea>
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+
+
+<% @blog.entries.each do |entry| %>
+  <%= entry.title %><br>
+<% end %>

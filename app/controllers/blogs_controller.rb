@@ -1,3 +1,4 @@
+require 'feedzirra'
 require 'nokogiri'
 require 'open-uri'
 class BlogsController < ApplicationController
@@ -16,7 +17,6 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @blog }
@@ -33,7 +33,7 @@ class BlogsController < ApplicationController
       return
     end
     html = Nokogiri::HTML(page.read)
-    @blog = Blog.new(url: params[:url], title: html.css('title')[0].content, describe: html.css('meta').select{|x| x[:name] = "description"}[0][:content])
+    @blog = Blog.new(url: params[:url], title: html.css('title')[0].content, describe: html.css('meta').select{|x| x[:name] == "description" || x[:name] == "Description"}[0][:content])
     
     respond_to do |format|
       format.html # new.html.erb

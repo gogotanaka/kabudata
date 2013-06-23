@@ -3,20 +3,57 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .blog_table {
+	border: 1px solid #ccc;
+	td {
+		padding: 10px;
+	}
+	th {
+		padding: 5px;
+	}
+	.rank {
+		text-align:center;
+	}
+	.image {
+		vertical-align:top;
+	}
 	th {
 		background-color: rgb(236,236,236);
 	}
-	margin-bottom: 100px;
-	.image {
-		float:left;
-		width:60px;
-	}
 	.title {
 		float:left;
-		font-size: 20px;
-		width:440px;
+		font-size: 16px;
+		margin-bottom: 7px;
+	}
+	.entry {
+
 	}
 }
 .table-striped tbody > tr:nth-child(odd) > td {
   background-color: rgb(236,236,236);
+}
+  .new_blog_top {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    #first_comment {
+      width: 340px;
+      float: left;
+      margin-right: 20px;
+    }
+  	.new_blog_container {
+	  background-color: #ecf0f1;
+	  padding: 10px;
+		.new_blog_container {
+		  width: 600px;
+		  float: left;
+		  border-left: 1px solid #ccc;
+		  padding-left: 20px;
+		  -moz-box-sizing: border-box;
+		  box-sizing: border-box;
+		  h3 {
+		    font-weight: bold;
+		    font-size: 15px;
+		    margin-bottom: 10px;
+		  }
+		}
+	}
 }

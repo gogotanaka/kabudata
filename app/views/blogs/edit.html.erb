@@ -1,6 +1,22 @@
-<h1>Editing blog</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<%= form_for@blog, html: {multipart: true} do |f| %>
+  <div class="field">
+    ブログのタイトル<br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    ブログのurl<br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    ブログのrss<br />
+    <%= f.text_field :rss %>
+  </div>
+  <div class="field">
+    ブログの説明<%= f.label :describe %><br />
+    <%= f.text_field :describe %>
+  </div>
+  <%= f.file_field :image %>
+  <div class="actions">
+    <%= f.submit "ブログを登録する。"%>
+  </div>
+<% end %>

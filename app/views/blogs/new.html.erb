@@ -1,5 +1,26 @@
-<h1>New blog</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', blogs_path %>
+<div class="new_blog_container">
+	<div class="new_blog_top">
+	  <div class="new_blog_container">
+	    <%= form_for@blog, html: {multipart: true} do |f| %>
+	      <div class="field_block">
+	        <div class="field_label">タイトル</div>
+	        <%= f.text_field :title, class: "field_wide" %>
+	      </div>
+	      <div class="field_block">
+	        <div class="field_label">URL</div>
+	        <%= f.text_field :url, class: "field_wide" %>
+	      </div>
+	      <div class="field_block">
+	        <div class="field_label">RSS</div>
+	        <%= f.text_field :rss, class: "field_wide" %>
+	      </div>
+	      <div class="field_block">
+	        <div class="field_label">説明</div>
+	        <%= f.text_area :describe, rows: "4", class: "field_wide" %>
+	      </div>
+	      <%= f.submit "ブログを登録する", class: "btn_primary" %>
+	    <% end %>
+	  </div>
+	</div>
+</div>
+  

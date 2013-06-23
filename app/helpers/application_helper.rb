@@ -15,4 +15,5 @@ module ApplicationHelper
 		wdays = ["日", "月", "火", "水", "木", "金", "土"]
 		time.strftime("%Y年%m月%d日") + "(" + wdays[time.wday] + ")" + "　" + time.strftime("%H:%M:%S")
 	end 
+
 end
