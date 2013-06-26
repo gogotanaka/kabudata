@@ -22,17 +22,22 @@
       <%= image_tag(stock.chart)%>
     </div>
   </div>
-  
-  
   <%= image_tag('stock_pickup.jpg')%>
   <%= image_tag('stock_blog.jpg')%>
-  <%= image_tag('stock_twitter.jpg')%>
-    <% @twitter.each do |item| %>
-      <div>
-        <%= item[0].html_safe %><br>
-        <%= item[1] %>
-      </div><br>
-    <% end %>
+  <div class="twitter_stream">
+    <div class="topic_img">
+      <%= image_tag 'stock_twitter.jpg', width: "678px"%>
+      <h2>[6556]&nbsp;<%= stock.name %></h2>
+    </div>
+    <div class="tweet">
+      <% @twitter.each do |item| %>
+        <div>
+          <%= item[0].html_safe %><br>
+          <%= item[1] %>
+        </div><br>
+      <% end %>
+    </div>
+  </div>
   <%= image_tag('stock_borad.jpg')%>
   <%= image_tag('stock_2ch.jpg')%>
   <%= image_tag('stock_2ch2.jpg')%>
