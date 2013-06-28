@@ -43,5 +43,23 @@
       margin-left: 40px;
     }
   }
-  
+  .twitter_stream {
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    .topic_img {
+      position: relative;
+      h2 {
+        position: absolute;
+        top: 8px;
+        left: 34px;
+        color: #fff;
+        font-size: 12px;
+      }
+    }
+    .tweet {
+      padding: 10px;
+      height: 400px;
+      overflow-y: auto;
+    }
+  }
 }
