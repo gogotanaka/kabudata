@@ -318,4 +318,27 @@ ul#menu {
     padding-top: 20px;
     color: #fff;
   }
+  .title_text {
+    color: #fff;
+  }
+}
+.yahoo {
+  border: 1px solid #999999;
+  padding: 5px;
+  .contribution {
+    border-bottom : 1px dashed #999999;
+    padding: 10px;
+    .title {
+      color: rgb(27,92,123);
+      font-size: 15px;
+      font-weight: bold;
+      padding: 3px 0;
+    }
+    .send {
+      padding: 5px 0;
+      .time {
+        font-weight: bold;
+      }
+    }
+  }
 }

@@ -16,7 +16,7 @@ Kabudata::Application.routes.draw do
       get 'list'
     end
   end
-
+  get "page/piece"
   resources :welcome
   root :to => 'welcome#index'
   get "page/address_index"

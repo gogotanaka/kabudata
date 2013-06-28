@@ -16,4 +16,8 @@ class PageController < ApplicationController
   def rise
   	
   end
+
+  def piece
+    @piece = Piece.find(params[:id])
+  end
 end
