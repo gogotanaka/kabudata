@@ -22,12 +22,11 @@
       <%= image_tag(stock.chart)%>
     </div>
   </div>
-  <%= image_tag('stock_pickup.jpg')%>
-  <%= image_tag('stock_blog.jpg')%>
+  <% if false %><%= image_tag('stock_pickup.jpg')%><% end %>
   <div class="twitter_stream">
     <div class="topic_img">
-      <%= image_tag 'stock_twitter.jpg', width: "678px"%>
-      <h2>[6556]&nbsp;<%= stock.name %></h2>
+      <%= image_tag 'stock_blog.jpg', width: "678px"%>
+      <h2>[6556]&nbsp;<%= stock.name %>に関する投資家ブログ情報</h2>
     </div>
     <div class="tweet">
       <% @twitter.each do |item| %>
@@ -38,19 +37,66 @@
       <% end %>
     </div>
   </div>
-  <%= image_tag('stock_borad.jpg')%>
-  <%= image_tag('stock_2ch.jpg')%>
-  <%= image_tag('stock_2ch2.jpg')%>
-  <%= image_tag('stock_textream.jpg')%>
-  <div class="yahoo">
-    <% @yahoo.each do |item| %>
-      <div class="contribution">
-        <h2 class="title"><%= item[0] %></h2>
-        <div class="send">
-          <%= item[1] %>　<span class="time"><%= item[2] %></span>　<%= item[3] %>
-        </div>
-        <%= item[4].html_safe %>
+  <div class="twitter_stream">
+    <div class="topic_img">
+      <%= image_tag 'stock_twitter.jpg', width: "678px"%>
+      <h2>[6556]&nbsp;<%= stock.name %>に関するtwitterのつぶやき</h2>
+    </div>
+    <div class="tweet">
+      <% @twitter.each do |item| %>
+        <div>
+          <%= item[0].html_safe %><br>
+          <%= item[1] %>
+        </div><br>
+      <% end %>
+    </div>
+  </div>
+  <div class="twitter_stream">
+    <div class="topic_img">
+      <%= image_tag 'stock_borad.jpg', width: "678px"%>
+      <h2>[6556]&nbsp;<%= stock.name %>の当サイトの掲示板</h2>
+    </div>
+    <div class="tweet">
+      <% @twitter.each do |item| %>
+        <div>
+          <%= item[0].html_safe %><br>
+          <%= item[1] %>
+        </div><br>
+      <% end %>
+    </div>
+  </div>
+  <% if false %><%= image_tag('stock_2ch.jpg')%><% end %>
+  <div class="twitter_stream">
+    <div class="topic_img">
+      <%= image_tag 'stock_2ch2.jpg', width: "678px"%>
+      <h2>[6556]&nbsp;<%= stock.name %>に関する個別銘柄板</h2>
+    </div>
+    <div class="tweet">
+      <% @twitter.each do |item| %>
+        <div>
+          <%= item[0].html_safe %><br>
+          <%= item[1] %>
+        </div><br>
+      <% end %>
+    </div>
+  </div>
+  <div class="twitter_stream">
+    <div class="topic_img">
+      <%= image_tag 'stock_textream.jpg', width: "678px"%>
+      <h2>[6556]&nbsp;<%= stock.name %>に関するYahoo株式textream</h2>
+    </div>
+    <div class="tweet">
+      <div class="yahoo">
+        <% @yahoo.each do |item| %>
+          <div class="contribution">
+            <h2 class="title"><%= item[0] %></h2>
+            <div class="send">
+              <%= item[1] %>　<span class="time"><%= item[2] %></span>　<%= item[3] %>
+            </div>
+            <%= item[4].html_safe %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
