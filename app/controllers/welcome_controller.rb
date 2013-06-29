@@ -5,32 +5,12 @@ def get_content(html, tag, className, index, childPath=nil)
 end
 class WelcomeController < ApplicationController
 	def index
-    url = "http://info.finance.yahoo.co.jp/ranking/?kd=56&mk=1"
-
-    begin
-      page = open(url)
-    rescue OpenURI::HTTPError
-      return
-    end
-    @codes = Nokogiri::HTML(page.read).css("tr.rankingTabledata").map{|x| x.css("td")[1].content }[0..10]
-
-    url = "http://news.finance.yahoo.co.jp/category/bus_all/"
-    begin
-      page = open(url)
-    rescue OpenURI::HTTPError
-      return
-    end
-    html = Nokogiri::HTML(page.read)
+    @codes = Stock.convert("http://info.finance.yahoo.co.jp/ranking/?kd=56&mk=1").css("tr.rankingTabledata").map{|x| x.css("td")[1].content }[0..10]
+    html = Stock.convert("http://news.finance.yahoo.co.jp/category/bus_all/")
     @doc = html.css("div.ymuiContainer")[0].content
     @news = html.css("div.marB15").map{|x| ["http://news.finance.yahoo.co.jp" + x.css("a")[0][:href].to_s, x.css("a")[0].inner_text, x.css("li.ymuiDate").inner_text] }
 
-    url = "http://finance.yahoo.co.jp"
-    begin
-      page = open(url)
-    rescue OpenURI::HTTPError
-      return
-    end
-    html = Nokogiri::HTML(page.read)
+    html = Stock.convert("http://finance.yahoo.co.jp")
     x = html.css("div#slider")[0].css("dd")
     [1,2,3,4].each do |i|
       unless Summary.find_by_id(i)
@@ -81,8 +61,9 @@ class WelcomeController < ApplicationController
     @ths.delete_at(-1)
     @tds = html.css("tr.rankingTabledata").map{|x| x.css("td").map{|y| y.text} }
     @tds.each{|x| x.delete_at(-1)}
-    
-
+    if params[:id].to_i == 9
+      html = Stock.convert("https://quick-v.nomura.co.jp/nomura/main/disp/Asp_Conts.asp?qid=03-05-01-01")
+    end
   end
 
   private 

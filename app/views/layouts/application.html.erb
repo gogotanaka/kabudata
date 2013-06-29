@@ -24,7 +24,7 @@
 		<div id="container"> 
 			<div class="inside"> 
 				<div id="logo_container" class="clearfix">
-					<%= image_tag('logo_copy.jpg',class: "logo_mark")%>
+					<%= link_to (image_tag('logo_copy.jpg',class: "logo_mark")), root_path %>
 					<div class="logo_text">
 						<p>仕手株、注目銘柄、ファンド銘柄、材料銘柄、株式ランキング、投資顧問ランキング、株に関する全ての情報を全て収集！完全無料で全て公開します。気になる銘柄、注目の銘柄、噂の銘柄に関する今後の動きも口コミ情報交換掲示板でチェックできます。本当に使える投資顧問会社、注目すべき投資家ブログもランキング形式でご紹介。ここさえ見ておけば常勝投資家も夢ではありません。</p>
 					</div>
@@ -38,12 +38,11 @@
 			    </div>
 			  </div>
 			  <ul id="menu" class="clearfix">
-			  	<li><%= link_to "HOME", root_path %></li>
 			  	<li><%= link_to "投資顧問会社ランキング", page_consultant_path %></li>
 			  	<li><%= link_to "証券界社ランキング", page_brokerage_path %></li>
 			  	<li><%= link_to "投資家ブログランキング", blogs_path %></li>
-			  	<li><%= link_to "口コミ情報掲示板", boards_path %></li>
-			  	<li><%= link_to "投資顧問会社掲示板", {controller: :boards, action: :index_consul, id: 1} %></li>
+			  	<li><%= link_to "銘柄別口コミ情報掲示板", boards_path %></li>
+			  	<li><%= link_to "投資顧問会社口コミ掲示板", {controller: :boards, action: :index_consul, id: 1} %></li>
 			  	<li><%= link_to "仕手株急騰銘柄", page_rise_path %></li>
 			  	<li><%= link_to "お問い合わせ", page_inquiry_path %></li>	
 			  </ul>
@@ -85,7 +84,7 @@
 						    	<li><%= link_to image_tag('increase_in_margin_sale.jpg', {width: "220px"}), welcome_path(7) %></li>
 						    	<li><%= link_to image_tag('reduction_in_margin_sale.jpg', {width: "220px"}), welcome_path(8) %></li>
 						    	<%= image_tag('kugiri-line.jpg', {width: "220px"})%>
-						    	<li><%= image_tag('kisei_on.jpg', {width: "220px"})%></li>
+						    	<li><%= link_to image_tag('kisei.jpg', {width: "220px"}), welcome_path(9) %></li>
 						    </ul>
 						  </div>
 					  <% end %>
