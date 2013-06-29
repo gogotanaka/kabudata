@@ -1,17 +1,11 @@
-<div>
-  <%= image_tag "borads_top.jpg", width: "680px" %>
-  <div id="board_lists">
-    <div id="list">
-      <% @boards.order("id").limit(30).each do |board| %>
-        <%= link_to board.title, board, class: "white_link" %>&nbsp;&nbsp;
-      <% end %>
-    </div>
-    <p><%= link_to "スレッド一覧はこちら", list_boards_path, class: "btn" %></p>
+<div class="main">
+  <%= image_tag("borads_top.jpg")%>
+  <div>
+    <% @boards.each do |board| %>
+      <%= link_to board.title, board %>
+    <% end %>
   </div>
-  <div class="board_comment_container">
-    <h2>今ホットなスレッド</h2>
-    <div class="comments_container">
-      aaa
-    </div>
-  </div>  
+  
+
+
 </div>

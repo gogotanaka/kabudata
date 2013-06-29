@@ -48,6 +48,7 @@ class WelcomeController < ApplicationController
     rescue OpenURI::HTTPError
       return
     end
+<<<<<<< HEAD
     html = Nokogiri::HTML(page.read)
     @ths = html.css("table.rankingTable tr.rankingTablettl")[0].css("th")
     @impo = @ths.map do |x|
@@ -64,6 +65,9 @@ class WelcomeController < ApplicationController
     if params[:id].to_i == 9
       html = Stock.convert("https://quick-v.nomura.co.jp/nomura/main/disp/Asp_Conts.asp?qid=03-05-01-01")
     end
+=======
+    @codes = Nokogiri::HTML(page.read).css("tr.rankingTabledata").map{|x| x.css("td")[1].content }
+>>>>>>> parent of 3dc9a2e... detail
   end
 
   private 
