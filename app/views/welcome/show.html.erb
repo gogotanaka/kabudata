@@ -1,20 +1,35 @@
 <%= image_tag(@bar)%>
+
+
 <table class="stock_table">
   <tr >
-  	<% @ths.each.with_index(0) do |th,i| %>
-  		<% if @impo[i]==0  %>
-  			<th><%= th %></th>
-  		<% else %>
-  			<th colspan="<%= @impo[i].to_s  %>"><%= th %></th>
-  		<% end %>
-  	<% end %>
+    <th>順位</th>
+    <th>コード</th>
+    <th>市場</th>
+    <th>名称</th>
+    <th colspan="2">取引値</th>
+    <th colspan="2">前日比</th>
+    <th>出来高</th>
+    <th>更新</th>
+    <th>掲示板</th>
   </tr>
-	<% @tds.each do |tds| %>
-		<tr>
-			<% tds.each do |td| %>
-				<td><%= td %></td>
-			<% end %>
-		</tr>
+	<% @codes.each.with_index(1) do |code,i| %>
+		<% if Stock.find_by_code(code) %>
+			<% stock = Stock.find_by_code(code) %>
+		  <tr>
+		    <td><%= i %></td>
+		    <td><%= code %></td>
+		    <td><%= stock.market %></td>
+		    <td><%= stock.name %></td>
+		    <td><%= stock.price %></td>
+		    <td><%=  %></td>
+		    <td><%= stock.previousprice %></td>
+		    <td><%= compare(stock.previousprice,stock.price) %></td>
+		    <td><%= stock.volume %></td>
+		    <td><%=  %></td>
+		    <td><%=  %></td>
+		  </tr>
+		<% end %>
 	<% end %>
-</table>
 
+</table>

@@ -24,12 +24,12 @@
           <% if Stock.find_by_code(code) %>
           <% stock = Stock.find_by_code(code) %>
             <tr>
-              <td><%= stock.code %></td>
-              <td><%= link_to stock.name, stock_path(stock.id) %></td>
+              <td><%= stock.code %>&nbsp;&nbsp;&nbsp;<%= link_to stock.name, stock_path(stock.id) %></td>
               <td><%= stock.market %></td>
               <td><%= stock.price %></td>
               <td><%= stock.previousprice %></td>
               <td><%= stock.volume %></td>
+              <td><%= stock.previousvolume %></td>
               <td><%= stock.opening %></td>
               <td><%= stock.high %></td>
               <td><%= stock.low %></td>
