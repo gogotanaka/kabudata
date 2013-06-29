@@ -26,5 +26,3 @@ gem "mini_magick"
 gem 'unicorn'
 # Deploy with Capistrano
 gem 'capistrano'
-
-gem 'feedzirra'
