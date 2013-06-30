@@ -20,12 +20,16 @@
 		background-color: rgb(236,236,236);
 	}
 	.title {
+		width: 300px;
 		float:left;
 		font-size: 16px;
 		margin-bottom: 7px;
 	}
 	.entry {
-
+		float:left;
+	}
+	.describe {
+		float:left;
 	}
 }
 .table-striped tbody > tr:nth-child(odd) > td {
