@@ -20,6 +20,7 @@ Kabudata::Application.routes.draw do
   resources :welcome
   root :to => 'welcome#index'
   get "page/address_index"
+  get "page/regulation"
   get "page/consultant"
   get "page/brokerage"
   get "page/inquiry"
