@@ -17,6 +17,9 @@ class PageController < ApplicationController
   	
   end
 
+  def regulation
+  end
+
   def piece
     @piece = Piece.find(params[:id])
   end

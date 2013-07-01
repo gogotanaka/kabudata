@@ -43,7 +43,7 @@
 			  	<li><%= link_to "投資家ブログランキング", blogs_path %></li>
 			  	<li><%= link_to "銘柄別口コミ情報掲示板", boards_path %></li>
 			  	<li><%= link_to "投資顧問会社口コミ掲示板", {controller: :boards, action: :index_consul, id: 1} %></li>
-			  	<li><%= link_to "仕手株急騰銘柄", page_rise_path %></li>
+			  	<li><%= link_to "仕手株急騰銘柄速報", page_rise_path %></li>
 			  	<li><%= link_to "お問い合わせ", page_inquiry_path %></li>	
 			  </ul>
 			  <div id="main_container" class="clearfix">
@@ -84,7 +84,7 @@
 						    	<li><%= link_to image_tag('increase_in_margin_sale.jpg', {width: "220px"}), welcome_path(7) %></li>
 						    	<li><%= link_to image_tag('reduction_in_margin_sale.jpg', {width: "220px"}), welcome_path(8) %></li>
 						    	<%= image_tag('kugiri-line.jpg', {width: "220px"})%>
-						    	<li><%= link_to image_tag('kisei.jpg', {width: "220px"}), page_regulation_path(9) %></li>
+						    	<li><%= link_to image_tag('kisei.jpg', {width: "220px"}), page_regulation_path %></li>
 						    </ul>
 						  </div>
 					  <% end %>
