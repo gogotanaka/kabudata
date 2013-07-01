@@ -2,7 +2,7 @@
   <%= image_tag "borads_kobetu.jpg", width: "680px"%>
   <div class="board_comment_container">
     <% if @board.stock_id %>
-      <h1><%= "【" + @board.stock_id.to_s+ "】" + @board.title + "の口コミ、投資情報" %></h1>
+      <h1><%= "【" + Stock.find(@board.stock_id).code.to_s + "】" + @board.title + "の口コミ、投資情報" %></h1>
     <% else %>
       <h1><%= @board.title + "の口コミ" %></h1>
     <% end %>

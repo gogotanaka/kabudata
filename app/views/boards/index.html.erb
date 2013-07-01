@@ -3,7 +3,7 @@
   <div id="board_lists">
     <div id="list">
       <% @boards.order("id").limit(30).each do |board| %>
-        <%= link_to "【" + board.stock_id.to_s + "】" + board.title, board, class: "white_link" %>&nbsp;&nbsp;
+        <%= link_to "【" + Stock.find(board.stock_id).code.to_s + "】" + board.title, board, class: "white_link" %>&nbsp;&nbsp;
       <% end %>
     </div>
     <p><%= link_to "スレッド一覧はこちら", list_boards_path, class: "btn" %></p>
