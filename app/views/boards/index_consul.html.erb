@@ -11,7 +11,17 @@
   <div class="board_comment_container">
     <h2>今ホットなスレッド</h2>
     <div class="comments_container">
-      aaa
+      <% Board.where("stock_id IS NULL").order("updated_at DESC")[0..4].each do |board| %>
+        <span class="title"><%= link_to board.title, board_path(board)%></span><br>
+        <% board.comments.order("updated_at DESC")[0..4].reverse.each do |comment| %>
+          <div class="commenter_container">
+            <div class="commenter">
+              <span class="name"><%= comment.sender %></span>&nbsp;<%= complete_time(comment.created_at) %>
+            </div>
+            <div class="contents"><%= comment.contents %></div>
+          </div>
+        <% end %>        
+      <% end %>
     </div>
   </div>  
 </div>
