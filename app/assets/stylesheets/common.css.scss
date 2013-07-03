@@ -322,6 +322,27 @@ ul#menu {
     color: #fff;
   }
 }
+.tweet_pack {
+  .item {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-bottom : 1px dashed #999999;
+    .image {
+      float: left;
+    }
+    .contents {
+      float: left;
+      margin-left: 10px;
+      width: 550px;
+      .send {
+        color: rgb(27,92,123);
+        font-size: 15px;
+        font-weight: bold;
+        padding: 3px 0;
+      }
+    }
+  }
+}
 .yahoo {
   border: 1px solid #999999;
   padding: 5px;

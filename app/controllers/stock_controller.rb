@@ -10,7 +10,7 @@ class StockController < ApplicationController
     end
     html = Nokogiri::HTML(page.read, nil, 'utf-8')
     @yahoo = html.css("table td")[12].css("div.s_res")
-    doc = html.css("table td")[11].css("div.twitter_status")
+    @twitter = html.css("table td")[11].css("div.twitter_status")
     @yahoo = @yahoo.map{|x|
       [
         x.css("span.yahoo_title").inner_text,
@@ -20,15 +20,17 @@ class StockController < ApplicationController
         x.css("div.this_comment p")[0].to_html
       ]
     }
-    @twitter = (doc[2..doc.length-3]||[]).map{|x|
+    if @twitter.length > 5
+      @twitter = @twitter[2..@twitter.length-3].map{|x|
       [
         x.css("img")[0].to_html,
+        x.css("a.from")[0].to_html,
         x.inner_text.split("From")[0]
       ]
-    }       
-    url = URI.encode("http://t-proj.net/twitter/?q=" + @stock.name)
-    @twitte = Stock.convert(url).css("div.twitter_status")
-    
+    }
+    else
+    end
+
 	end
 
   def search

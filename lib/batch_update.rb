@@ -27,7 +27,7 @@ class BatchUpdate
           opening: td[7].text.to_i,
           high: td[8].text.to_i,
           low: td[9].text.to_i,
-          chart: td[10].text.to_i
+          chart: td[10].text
           )
         stock.save
       end
