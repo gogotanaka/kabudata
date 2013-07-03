@@ -25,7 +25,9 @@ class StockController < ApplicationController
         x.css("img")[0].to_html,
         x.inner_text.split("From")[0]
       ]
-    }
+    }       
+    url = URI.encode("http://t-proj.net/twitter/?q=" + @stock.name)
+    @twitte = Stock.convert(url).css("div.twitter_status")
     
 	end
 

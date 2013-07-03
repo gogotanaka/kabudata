@@ -2,7 +2,7 @@
   <%= image_tag("welcome_hot.jpg")%>
   <div id="stock_hot">
     <div id="yahoo_update">
-      5月19日14時更新・値動き（yahooファイナンスより）
+      <%= update_time(Time.now) %>更新・値動き（yahooファイナンスより）
     </div>
     <table class="table table-striped">
       <thead>
