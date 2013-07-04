@@ -13,6 +13,17 @@ class BatchUpdate
     end
     doc = Nokogiri::HTML(page.read, nil, 'utf-8')
   end
+  
+  def self.summary
+    html = self.convert("http://finance.yahoo.co.jp")
+    x = html.css("div#slider")[0].css("dd")
+    [1,2,3,4].each do |i|
+      unless Summary.find_by_id(i)
+        Summary.create(comparison: x[i*2].inner_text, price: x[i*2-1].inner_text)
+      end
+    end
+  end
+
   def self.execute
     id = Time.now.strftime("%M").to_i/2
     i = 1

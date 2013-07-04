@@ -9,16 +9,12 @@ class WelcomeController < ApplicationController
     html = Stock.convert("http://news.finance.yahoo.co.jp/category/bus_all/")
     @doc = html.css("div.ymuiContainer")[0].content
     @news = html.css("div.marB15").map{|x| ["http://news.finance.yahoo.co.jp" + x.css("a")[0][:href].to_s, x.css("a")[0].inner_text, x.css("li.ymuiDate").inner_text] }
-
-    html = Stock.convert("http://finance.yahoo.co.jp")
-    x = html.css("div#slider")[0].css("dd")
-    [1,2,3,4].each do |i|
-      unless Summary.find_by_id(i)
-        Summary.create(comparison: x[i*2].inner_text, price: x[i*2-1].inner_text)
-      end
-    end
-
     @summary = Summary.all
+
+    @up = Stock.convert("http://info.finance.yahoo.co.jp/ranking/?kd=1&mk=1&tm=d&vl=a").css("tbody tr").map{|x| [x.css("td")[0].inner_text, x.css("td")[1].inner_text, x.css("td")[3].inner_text,x.css("td")[5].inner_text,x.css("td")[7].inner_text,]}
+
+    @down = Stock.convert("http://info.finance.yahoo.co.jp/ranking/?kd=2&mk=1&tm=d&vl=a").css("tbody tr").map{|x| x.css("td")[1].inner_text}
+
   end
 
   def show

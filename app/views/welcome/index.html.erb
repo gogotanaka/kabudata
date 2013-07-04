@@ -67,7 +67,26 @@
 <div class="welcome_index_box">
   <%= image_tag("welcome_top50.jpg")%>
   <div class="box">
-    aaa
+    <div class="stream">
+      <div class="contents">
+        <table class="stock_table">
+          <tr>
+            <td width="30px">順位 </td>
+            <td width="40px">コード</td>
+            <td width="150px">銘柄</td>
+            <td width="50px">現在値</td>
+            <td width="50px">前日比</td>
+          </tr>
+          <% @up.each do |tds| %>
+            <tr>
+              <% tds.each do |td| %>
+                <td><%= td %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 <div class="welcome_index_box">
