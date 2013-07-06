@@ -2,8 +2,8 @@
   <% stock = @stock %>
   <div class="stock_topic">
     <h1>[<%= stock.code %>]&nbsp;<%= stock.name %></h1>
-    <h2>マザーズ&nbsp;電気機器</h2>
-    <h3>半導体外観検査措置メーカー。精密基盤パターン装置に進出。</h3>
+    <h2><%= stock.market %>&nbsp;<%= stock.industry %></h2>
+    <h3></h3>
   </div>
   <div id="stock_info" class="clearfix">
     <div id="stock_table">
@@ -32,25 +32,27 @@
 
     </div>
   </div>
-  <div class="twitter_stream">
-    <div class="topic_img">
-      <%= image_tag 'stock_twitter.jpg', width: "678px"%>
-      <h2>[6556]&nbsp;<%= stock.name %>に関するtwitterのつぶやき</h2>
-    </div>
-    <div class="tweet">
-      <div class="tweet_pack">
-        <% @twitter.each do |item| %>
-          <div class="item clearfix">
-            <div class="image"><%= item[0].html_safe %></div>
-            <div class="contents">
-              <span class="send"><%= item[1].html_safe %></span>
-              <%= item[2] %>
+  <% if @twitter %>
+    <div class="twitter_stream">
+      <div class="topic_img">
+        <%= image_tag 'stock_twitter.jpg', width: "678px"%>
+        <h2>[6556]&nbsp;<%= stock.name %>に関するtwitterのつぶやき</h2>
+      </div>
+      <div class="tweet">
+        <div class="tweet_pack">
+          <% @twitter.each do |item| %>
+            <div class="item clearfix">
+              <div class="image"><%= item[0].html_safe %></div>
+              <div class="contents">
+                <span class="send"><%= item[1].html_safe %></span>
+                <%= item[2] %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
   <div class="twitter_stream">
     <div class="topic_img">
       <%= image_tag 'stock_borad.jpg', width: "678px"%>
@@ -68,23 +70,25 @@
     </div>
 
   </div>
-  <div class="twitter_stream">
-    <div class="topic_img">
-      <%= image_tag 'stock_textream.jpg', width: "678px"%>
-      <h2>[6556]&nbsp;<%= stock.name %>に関するYahoo株式textream</h2>
-    </div>
-    <div class="tweet">
-      <div class="yahoo">
-        <% @yahoo.each do |item| %>
-          <div class="contribution">
-            <h2 class="title"><%= item[0] %></h2>
-            <div class="send">
-              <%= item[1] %>　<span class="time"><%= item[2] %></span>　<%= item[3] %>
+  <% if @yahoo %>
+    <div class="twitter_stream">
+      <div class="topic_img">
+        <%= image_tag 'stock_textream.jpg', width: "678px"%>
+        <h2>[6556]&nbsp;<%= stock.name %>に関するYahoo株式textream</h2>
+      </div>
+      <div class="tweet">
+        <div class="yahoo">
+          <% @yahoo.each do |item| %>
+            <div class="contribution">
+              <h2 class="title"><%= item[0] %></h2>
+              <div class="send">
+                <%= item[1] %>　<span class="time"><%= item[2] %></span>　<%= item[3] %>
+              </div>
+              <%= item[4].html_safe %>
             </div>
-            <%= item[4].html_safe %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>

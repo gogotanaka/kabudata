@@ -28,9 +28,9 @@ class StockController < ApplicationController
         x.inner_text.split("From")[0]
       ]
     }
-    else
     end
-
+    @twitter = @twitter || []
+    @yahoo = @yahoo || []
 	end
 
   def search

@@ -1,5 +1,5 @@
 class Stock < ActiveRecord::Base
-  attr_accessible :code, :high, :low, :market, :name, :opening, :previousprice, :previousvolume, :price, :volume, :chart
+  attr_accessible :code, :high, :low, :market, :name, :opening, :previousprice, :previousvolume, :price, :volume, :chart, :industry
   after_create :after_create_callback
   
   def after_create_callback
