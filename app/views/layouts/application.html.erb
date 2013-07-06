@@ -2,6 +2,8 @@
 <html>
 	<head>
 	  <title><%= @page_title or '【仕手株・ファンド銘柄】で稼ぐ無料で使える一番便利な株情報サイト' %></title>
+	  <meta name="keyword" content="株,仕手株,投資,無料,ファンド銘柄,株情報,情報,絶対,急騰,仕手">
+    <meta name="description" content="仕手株、注目銘柄、ファンド銘柄、材料銘柄、株式ランキング、投資顧問ランキング、株に関する全ての情報を全て収集！完全無料で全て公開します。気になる銘柄、注目の銘柄、噂の銘柄に関する今後の動きも口コミ情報交換掲示板でチェックできます。本当に使える投資顧問会社、注目すべき投資家ブログもランキング形式でご紹介。ここさえ見ておけば常勝投資家も夢ではありません。">
 	  <%= stylesheet_link_tag    "application", :media => "all" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
@@ -98,6 +100,20 @@
 				  	<%= yield %>
 				  </div>
 				</div>
+
+
+			  <ul id="footmenu" class="clearfix">
+			  	<li><%= link_to "TOP", root_path %></li>	
+			  	<li><%= link_to "投資顧問会社ランキング", page_consultant_path %></li>
+			  	<li><%= link_to "証券会社ランキング", page_brokerage_path %></li>
+			  	<li><%= link_to "投資家ブログランキング", blogs_path %></li>
+			  	<li><%= link_to "銘柄別口コミ情報掲示板", boards_path %></li>
+			  	<li><%= link_to "投資顧問会社口コミ掲示板", {controller: :boards, action: :index_consul, id: 1} %></li>
+			  	<li><%= link_to "仕手株急騰銘柄速報", page_rise_path %></li>
+			  	<li><%= link_to "お問い合わせ", page_inquiry_path %></li>	
+			  	<li><%= link_to "サイトマップ", page_sitemap_path %></li>	
+			  </ul>
+
 			</div>
 		</div>
 	</body>

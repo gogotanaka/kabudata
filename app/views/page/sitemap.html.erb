@@ -1,0 +1,13 @@
+<div class="detail">
+	<ul id="sitemenu" class="clearfix">
+	  	<li><%= link_to "TOP", root_path %></li>
+	  	<li><%= link_to "投資顧問会社ランキング", page_consultant_path %></li>
+	  	<li><%= link_to "証券会社ランキング", page_brokerage_path %></li>
+	  	<li><%= link_to "投資家ブログランキング", blogs_path %></li>
+	  	<li><%= link_to "銘柄別口コミ情報掲示板", boards_path %></li>
+	  	<li><%= link_to "投資顧問会社口コミ掲示板", {controller: :boards, action: :index_consul, id: 1} %></li>
+	  	<li><%= link_to "仕手株急騰銘柄速報", page_rise_path %></li>
+	  	<li><%= link_to "お問い合わせ", page_inquiry_path %></li>	
+	  	<li><%= link_to "サイトマップ", page_sitemap_path %></li>
+	</ul>
+</div>
