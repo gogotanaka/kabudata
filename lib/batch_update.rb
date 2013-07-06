@@ -32,12 +32,12 @@ class BatchUpdate
         td = x.css("td")
         stock = Stock.find_by_code(td[0].text.to_i)
         stock.update_attributes(
-          price: td[3].text.to_i,
-          previousprice: td[4].text.to_i,
-          volume: td[5].text.to_i,
-          opening: td[7].text.to_i,
-          high: td[8].text.to_i,
-          low: td[9].text.to_i,
+          price: td[3].text,
+          previousprice: td[4].text,
+          volume: td[5].text,
+          opening: td[7].text,
+          high: td[8].text,
+          low: td[9].text,
           chart: td[10].text
           )
         stock.save
