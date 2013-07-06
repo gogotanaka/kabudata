@@ -66,7 +66,7 @@
 </div>
 <div class="welcome_index_box">
   <%= image_tag("welcome_top50.jpg")%>
-  <div class="box">
+  <div class="stream_box">
     <div class="stream">
       <div class="contents">
         <table class="stock_table">
@@ -75,12 +75,34 @@
             <td width="40px">コード</td>
             <td width="150px">銘柄</td>
             <td width="50px">現在値</td>
-            <td width="50px">前日比</td>
+            <td width="50px" class="plus">前日比</td>
           </tr>
           <% @up.each do |tds| %>
             <tr>
-              <% tds.each do |td| %>
-                <td><%= td %></td>
+              <% tds.each.with_index(1) do |td, i| %>
+                <td class="<%= "plus" if i%5 == 0 %>"><%= truncate(td, length: 13) %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="stream_box_2">
+    <div class="stream">
+      <div class="contents">
+        <table class="stock_table">
+          <tr>
+            <td width="30px">順位 </td>
+            <td width="40px">コード</td>
+            <td width="150px">銘柄</td>
+            <td width="50px">現在値</td>
+            <td width="50px" class="minus">前日比</td>
+          </tr>
+          <% @up.each do |tds| %>
+            <tr>
+              <% tds.each.with_index(1) do |td, i| %>
+                <td class="<%= "minus" if i%5 == 0 %>"><%= truncate(td, length: 13) %></td>
               <% end %>
             </tr>
           <% end %>

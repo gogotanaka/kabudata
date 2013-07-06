@@ -23,16 +23,6 @@
   .box {
     border: 1px solid #ccc;
     padding: 20px;
-    .stream {
-      border: 1px solid #ccc;
-      width: 400px;
-      .contents {
-        padding: 10px;
-        height: 200px;
-        overflow-y: auto;
-      }
-    }
-
     #info_table {
       width: 280px;
       float: left;
@@ -52,9 +42,40 @@
       float: left;
       margin-left: 10px;
     }
+  }
+  .stream_box {
+    margin-right: 10px;
+    padding: 5px;
+    float: left;
+    .stream {
+      border: 1px solid #ccc;
+      width: 300px;
+      .contents {
+        padding: 5px;
+        height: 200px;
+        overflow-y: auto;
+      }
+    }
+    .plus {
+      color: red;
+    }
+  }
 
-
-
+  .stream_box_2 {
+    padding: 5px;
+    float: left;
+    .stream {
+      border: 1px solid #ccc;
+      width: 300px;
+      .contents {
+        padding: 5px;
+        height: 200px;
+        overflow-y: auto;
+      }
+    }
+    .minus {
+      color: blue;
+    }
   }
 }
 .stock_table {
