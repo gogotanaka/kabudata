@@ -70,10 +70,12 @@
 				      <br><br><%= image_tag('banner_large.jpg')%>
 				      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="株式投資ブログランキング"><img alt="Banner_laer" src="/assets/banner_large.jpg" /></a></textarea>
 				  		<br><br><%= image_tag('blog_new_bar.jpg')%><br>
-				  		<% Blog.all.map{|x| x.entries}.flatten.sort_by{|a,b| a <=> b}[0..4].each do |entry| %>
-				  			<%= entry.published.strftime("%Y年%m月%d日 %H:%M:%S") %><br>
-				  			<%= link_to entry.title, entry.url %><br>
-				  		<% end %>
+				      <% Blog.all.map{|x| x.entries}.flatten.sort_by{|a,b| a <=> b}[0..4].each do |entry| %>
+				        <div class="entry">  
+				          <div class="word"><%= link_to entry.title, entry.url %></div>
+				          <div class="time"><%= entry.published.strftime("%Y年%m月%d日 %H:%M:%S") %></div>
+				        </div>
+				      <% end %>
 				  	<% else %>
 					  	<div id= "contents_guide">
 						    <%= image_tag('contents-guide.jpg')%>

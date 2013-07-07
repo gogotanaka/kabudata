@@ -285,6 +285,28 @@ ul#menu {
   #side_menu {
     width: 260px;
     float: left;
+
+
+
+  .entry {
+    padding: 2px;
+    margin: 10px 0;
+    a {
+      font-size: 15px;
+    }
+    .time {
+      margin-top: 5px;
+      color: #888;
+      font-size: 11px;
+    }
+    .word {
+
+    }
+  }
+
+
+
+    
     #search_container {
       padding: 10px 0;
       border-top: 3px solid rgb(220,218,187);
@@ -403,4 +425,8 @@ ul#menu {
       }
     }
   }
+
+
+
+
 }
