@@ -6,10 +6,8 @@ end
 class WelcomeController < ApplicationController
 	def index
     @codes = Stock.convert("http://info.finance.yahoo.co.jp/ranking/?kd=56&mk=1").css("tr.rankingTabledata").map{|x| x.css("td")[1].content }[0..10]
-    html = Stock.convert("http://news.finance.yahoo.co.jp/category/bus_all/")
-    @doc = html.css("div.ymuiContainer")[0].content
-    @news = html.css("div.marB15").map{|x| ["http://news.finance.yahoo.co.jp" + x.css("a")[0][:href].to_s, x.css("a")[0].inner_text, x.css("li.ymuiDate").inner_text] }
     @summary = Summary.all
+    @news = News.order("updated_at ASC").limit(10)
 
     @up = Stock.convert("http://info.finance.yahoo.co.jp/ranking/?kd=1&mk=1&tm=d&vl=a").css("tbody tr").map{|x| [x.css("td")[0].inner_text, x.css("td")[1].inner_text, x.css("td")[3].inner_text,x.css("td")[5].inner_text,x.css("td")[7].inner_text,]}
 

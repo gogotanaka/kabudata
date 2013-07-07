@@ -28,6 +28,9 @@ end
 every 15.minute do
 	runner "BatchUpdate.summary"
 end
+every 15.minute do
+	runner "BatchUpdate.news"
+end
 
 every 1.minute do
   runner "BatchUpdate.blog_count"

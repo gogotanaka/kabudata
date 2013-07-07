@@ -59,7 +59,7 @@
         </table>
       </div>
       <div id="stock_chart_box">
-        <%= image_tag("http://gchart.yahoo.co.jp/s?s=998407.O") %>
+        <%= image_tag("http://gchart.yahoo.co.jp/s?s=998407.O", widht: 40) %>
       </div>
     </div>
   </div>
@@ -117,7 +117,7 @@
   <%= image_tag("welcome_news.jpg")%>
   <div class="box">
     <% @news.each do |news| %>
-      <%= link_to news[1] ,news[0] %>　　<%= news[2] %><br><br>
+      <%= link_to news.word ,news.link %>　　<%= news.newsdate %><br><br>
     <% end %>
   </div>
 </div>
