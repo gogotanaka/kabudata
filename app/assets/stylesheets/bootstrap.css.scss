@@ -13,7 +13,6 @@ table {
 
 .table {
   width: 100%;
-  margin: 10px 0;
 }
 
 .table th,
@@ -23,6 +22,7 @@ table {
   text-align: left;
   vertical-align: middle;
   border-top: 1px solid #dddddd;
+  border-right: 1px solid #ccc;
 }
 
 .table th {
@@ -143,6 +143,7 @@ table {
 .table-striped tbody > tr:nth-child(odd) > td,
 .table-striped tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9;
+  border-right: 1px solid #ccc;
 }
 
 .table-hover tbody tr:hover td,
