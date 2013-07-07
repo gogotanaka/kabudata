@@ -28,7 +28,7 @@ end
 every 15.minute do
 	runner "BatchUpdate.summary"
 end
-every 15.minute do
+every 1.minute do
 	runner "BatchUpdate.news"
 end
 
