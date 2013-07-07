@@ -1,34 +1,45 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <b>Url:</b>
-  <%= @blog.url %>
-</p>
-<p>
-  <b>Rss:</b>
-  <%= @blog.rss %>
-</p>
-<p>
-  <b>Title:</b>
-  <%= @blog.title %>
-</p>
+<div class="new_blog_container">
+  <div class="new_blog_top">
+    <div class="new_blog_container">
+      
+        <div class="field_block">
+          <div class="field_label">タイトル</div>
+          <%= @blog.title %>
+        </div>
+        <div class="field_block">
+          <div class="field_label">URL</div>
+          <%= @blog.url %>
+        </div>
+        <div class="field_block">
+          <div class="field_label">RSS</div>
+          <%= @blog.rss %>
+        </div>
+        <div class="field_block">
+          <div class="field_label">説明</div>
+          <%= @blog.describe %>
+        </div>
+        <div class="field_block">
+          <div class="field_label">今日のイン</div>
+          <%= @blog.ins.count %>
+        </div>
+        <div class="field_block">
+          <div class="field_label">通算イン</div>
+          <%= @blog.in %>
+        </div>
+    
 
-<p>
-  <b>Describe:</b>
-  <%= @blog.describe %>
-</p>
-<p>
-  <b>今日のイン</b>
-  <%= @blog.ins.count %>
-</p>
-<p>
-  <b>通算イン</b>
-  <%= @blog.in %>
-</p>
-<% s = (link_to "ブログランキング", {controller: "blogs", action: "count_in", id: @blog.id}).to_s %>
-<%= s %>
-<textarea cols="40" rows="6"><%= CGI::unescape(s) %></textarea>
+    <% s = (link_to image_tag("http://tousijyohou.jp/assets/banner_large.jpg", alt: '株に関する全ての情報を全て収集！完全無料で全て公開します。気になる銘柄、注目の銘柄、噂の銘柄に関する今後の動きも口コミ情報交換掲示板でチェックできます。'), "http://tousijyohou.jp/blogs/2/count_in") %>
+    <%= s %>
+    <textarea cols="40" rows="6"><%= CGI::unescape(s) %></textarea>
 
 
-<% @blog.entries.each do |entry| %>
-  <%= entry.title %><br>
-<% end %>
+    <% @blog.entries.each do |entry| %>
+      <%= entry.title %><br>
+    <% end %>
+</div>
+
+  </div>
+</div>
+  
+
+
