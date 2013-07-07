@@ -1,4 +1,25 @@
-<%= image_tag('rise_bar.jpg')%>
+<h1>Listing blogs</h1>
 
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Title</th>
+    <th>Describe</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<%= image_tag('rise_report_bar.jpg')%>
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.url %></td>
+    <td><%= blog.title %></td>
+    <td><%= blog.describe %></td>
+    <td><%= link_to 'Show', blog %></td>
+    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+    <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

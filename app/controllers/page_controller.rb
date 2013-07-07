@@ -23,4 +23,5 @@ class PageController < ApplicationController
   def piece
     @piece = Piece.find(params[:id])
   end
+
 end

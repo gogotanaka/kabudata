@@ -9,6 +9,7 @@ class AdminController < ApplicationController
 	end
 
 	def blog
+		@blogs = Blog.all
 	end
 
 	def stock
