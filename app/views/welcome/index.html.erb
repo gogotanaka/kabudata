@@ -100,7 +100,7 @@
               <td width="50px">現在値</td>
               <td width="50px" class="minus">前日比</td>
             </tr>
-            <% @up.each do |tds| %>
+            <% @down.each do |tds| %>
               <tr>
                 <% tds.each.with_index(1) do |td, i| %>
                   <td class="<%= "minus" if i%5 == 0 %>"><%= truncate(td, length: 13) %></td>

@@ -28,21 +28,14 @@ class BatchUpdate
     html = self.convert("http://news.finance.yahoo.co.jp/category/bus_all/")
     i=0
     html.css("div.marB15").each do |x|
-      unless News.all.size > 20
-        @news = News.new
-        @news.link = "http://news.finance.yahoo.co.jp" + x.css("a")[0][:href].to_s
-        @news.word = x.css("a")[0].inner_text
-        @news.newsdate = x.css("li.ymuiDate").inner_text
-        @news.save
-      else
-        @news = News.order("created_at DESC")[i]
-        @news.link = "http://news.finance.yahoo.co.jp" + x.css("a")[0][:href].to_s
-        @news.word = x.css("a")[0].inner_text
-        @news.newsdate = x.css("li.ymuiDate").inner_text
-        @news.save
-      end
+      @news = News.order("created_at ASC")[i]
+      @news.link = "http://news.finance.yahoo.co.jp" + x.css("a")[0][:href].to_s
+      @news.word = x.css("a")[0].inner_text
+      @news.newsdate = x.css("li.ymuiDate").inner_text
+      @news.save
+      i = i+1
     end
-    i = i+1
+    
   end
   def self.execute
     id = Time.now.strftime("%M").to_i/2
