@@ -29,7 +29,7 @@ class BatchUpdate
     i=0
     html.css("div.marB15").each do |x|
       unless News.all.size > 20
-        @news = News.order
+        @news = News.new
         @news.link = "http://news.finance.yahoo.co.jp" + x.css("a")[0][:href].to_s
         @news.word = x.css("a")[0].inner_text
         @news.newsdate = x.css("li.ymuiDate").inner_text
