@@ -25,7 +25,7 @@ class PageController < ApplicationController
   end
 
   def index
-    @posts = Stock.all
+    @posts = Piece.all
   end
 
 end

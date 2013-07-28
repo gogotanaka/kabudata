@@ -1,6 +1,7 @@
 Kabudata::Application.routes.draw do
 
   resources :stock
+  resources :piece
 
   resources :blogs do
     member do

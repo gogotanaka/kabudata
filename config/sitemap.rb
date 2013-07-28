@@ -44,6 +44,6 @@ SitemapGenerator::Sitemap.create do
     add boards_path(board), :lastmod => board.updated_at
   end
   Stock.find_each do |stock|
-    add stocks_path(stock), :lastmod => stock.updated_at
+    add stock_path(stock), :lastmod => stock.updated_at
   end
 end
