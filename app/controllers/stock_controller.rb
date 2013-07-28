@@ -39,7 +39,7 @@ class StockController < ApplicationController
     if word
       @search_stocks = Stock.where("name LIKE :word", word: "%#{word}%")
       unless word.to_i == 0
-        @search_stocks += Stock.where("code LIKE :word", word: "%#{word.to_i}%")
+        @search_stocks += Stock.where("code = ?", "#{word.to_i}")
       end
     else
       @search_stocks = Stock.all
