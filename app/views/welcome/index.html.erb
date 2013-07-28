@@ -46,7 +46,24 @@
     </table>
   </div>
 </div>
-
+<div class="welcome_index_box">
+  <%= image_tag("welcome_summary.jpg")%>
+  <div class="box">
+    <div class="clearfix">
+      <div id="info_table">
+        <table class="">
+          <tr><td>日経平均株価</td><td class="font_blod stock_table_td_align"><%= @summary[0].price %> <%= @summary[0].comparison %></td></tr>
+          <tr><td>NYダウ</td><td class="stock_table_td_align"><%= @summary[1].price %> <%= @summary[1].comparison %></td></tr>
+          <tr><td>香港ハンセン</td><td class="stock_table_td_align"><%= @summary[2].price %> <%= @summary[2].comparison %></td></tr>
+          <tr><td>FTSE</td><td class="stock_table_td_align"><%= @summary[3].price %> <%= @summary[3].comparison %></td></tr>
+        </table>
+      </div>
+      <div id="stock_chart_box">
+        <%= image_tag("http://gchart.yahoo.co.jp/s?s=998407.O", widht: 40) %>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="welcome_index_box">
   <%= image_tag("welcome_top50.jpg")%>
   <div class="box clearfix">
