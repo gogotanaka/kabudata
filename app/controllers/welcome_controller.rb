@@ -16,7 +16,8 @@ class WelcomeController < ApplicationController
 
   def show
     @bar = "bar_" + params[:id] + ".jpg"
-    case params[:id].to_i
+    @id = params[:id].to_i
+    case @id
       
     when 1
       url = "http://info.finance.yahoo.co.jp/ranking/?kd=1&mk=1&tm=d&vl=a"

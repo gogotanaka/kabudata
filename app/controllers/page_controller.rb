@@ -24,4 +24,8 @@ class PageController < ApplicationController
     @piece = Piece.find(params[:id])
   end
 
+  def index
+    @posts = Stock.all
+  end
+
 end

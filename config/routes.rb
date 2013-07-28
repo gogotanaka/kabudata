@@ -25,6 +25,8 @@ Kabudata::Application.routes.draw do
   get "page/brokerage"
   get "page/inquiry"
   get "page/rise"
+  get "page/index"
+
   get "page/sitemap"
   post "page/register_address"
   match ':controller(/:action(/:id))(.:format)'

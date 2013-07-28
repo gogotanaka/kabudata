@@ -11,8 +11,8 @@
   </tr>
 	<% @tds.each do |tds| %>
 		<tr>
-			<% tds.each do |td| %>
-				<td><%= td %></td>
+			<% tds.each.with_index(1) do |td, i| %>
+				<td class="<%= "plus" if (i == 7 && @id == 1) %>"><%= td %></td>
 			<% end %>
 		</tr>
 	<% end %>
