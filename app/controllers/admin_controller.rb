@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-
+	require 'xmlrpc/client'
 	def board
 		@boards = Board.where("stock_id IS NOT NULL")
 	end
@@ -31,4 +31,28 @@ class AdminController < ApplicationController
 		Piece.create(params[:piece])
 		redirect_to :back
 	end
+	def ping
+		ping_servers = ["http://www.blogpeople.net/servlet/weblogUpdates",
+			"http://blogsearch.google.co.jp/ping/RPC2",
+			"http://blog.goo.ne.jp/XMLRPC",
+			"http://ping.blogoon.net/",
+			"http://ping.ask.jp/xmlrpc.m",
+			"http://www.bloglines.com/ping",
+			"http://api.my.yahoo.co.jp/RPC2",
+			"http://ping.fc2.com/"]
+    @response = []
+    ping_servers.each do |ping_server|
+      client = XMLRPC::Client.new2(ping_server)
+      begin
+      	client.http_header_extra = {"accept-encoding" => "identity"}   
+        res = client.call("weblogUpdates.ping", 
+           '仕手株急騰情報', 
+           'http://tousijyohou.jp/page.atom')
+        rescue Exception => e
+        res = {"message" => "#{e.class}: #{e.message}", "flerror" => nil}
+      end
+      @response << [ping_server, res["message"]]
+    end
+    render :action => 'ping'
+  end
 end

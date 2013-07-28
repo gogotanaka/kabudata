@@ -34,11 +34,12 @@ class StockController < ApplicationController
 	end
 
   def search
-    words = params[:words].gsub(/　/," ").split(nil)
+    word = params[:words]
     @search_stocks = []
-    words.each do |word|
-      @search_stocks += Stock.where("name LIKE :word OR code LIKE :word", word: "%#{word}%")
+    if word
+      @search_stocks = Stock.where("name LIKE :word OR code LIKE :word", word: "%#{word}%")
+    else
+      @search_stocks = Stock.all
     end
-    @search_stocks.uniq!
   end
 end

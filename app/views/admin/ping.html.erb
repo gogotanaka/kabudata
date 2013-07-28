@@ -1,0 +1,12 @@
+<% @page_title = 'PING 送信' -%>
+<div id="main">
+<h1><%= @page_title -%></h1>
+<% if @response -%>
+<table>
+<tr><th>サーバ</th><th>結果</th></tr>
+  <% @response.each do |r| -%>
+  <tr><td><%= r[0] -%></td><td><%= r[1] -%></td></tr>
+  <% end -%>
+</table>
+<% end -%>
+</div>
