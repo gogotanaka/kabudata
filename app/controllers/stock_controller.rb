@@ -37,9 +37,14 @@ class StockController < ApplicationController
     word = params[:words]
     @search_stocks = []
     if word
-      @search_stocks = Stock.where("name LIKE :word OR code LIKE :word", word: "%#{word}%")
+      @search_stocks = Stock.where("name LIKE :word", word: "%#{word}%")
+      unless word.to_i == 0
+        @search_stocks += Stock.where("code LIKE :word", word: "%#{word.to_i}%")
+      end
     else
       @search_stocks = Stock.all
     end
+    
+    @search_stocks.uniq!
   end
 end
