@@ -126,6 +126,8 @@ GEM
       tilt (~> 1.3)
     sax-machine (0.1.0)
       nokogiri (> 0.0.0)
+    sitemap_generator (4.1.1)
+      builder
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -165,6 +167,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.13)
   sass-rails (= 3.2.5)
+  sitemap_generator
   sqlite3 (= 1.3.5)
   uglifier (= 1.2.3)
   unicorn
