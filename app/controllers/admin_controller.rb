@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
+  http_basic_authenticate_with name: "tis1059", password: "tis1059"
 	require 'xmlrpc/client'
 	def board
 		@boards = Board.where("stock_id IS NOT NULL")
