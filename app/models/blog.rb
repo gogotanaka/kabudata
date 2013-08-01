@@ -1,5 +1,5 @@
 class Blog < ActiveRecord::Base
-  attr_accessible :describe, :title, :url, :image, :rss
+  attr_accessible :describe, :title, :url, :image, :rss, :in, :out, :week_in
   mount_uploader :image, ImageUploader
   has_many :ins
 

@@ -15,6 +15,18 @@
     ブログの説明<%= f.label :describe %><br />
     <%= f.text_field :describe %>
   </div>
+  <div class="field_block">
+    <div class="field_label">IN</div>
+    <%= f.text_field :in, class: "field_wide" %>
+  </div>
+  <div class="field_block">
+    <div class="field_label">OUT</div>
+    <%= f.text_field :out, class: "field_wide" %>
+  </div>
+  <div class="field_block">
+    <div class="field_label">week_in</div>
+    <%= f.text_field :week_in, class: "field_wide" %>
+  </div>
   <%= f.file_field :image %>
   <div class="actions">
     <%= f.submit "ブログを登録する。"%>
