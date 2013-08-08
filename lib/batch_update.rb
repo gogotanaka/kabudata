@@ -36,7 +36,6 @@ class BatchUpdate
       @news.save
       i = i+1
     end
-    
   end
   #updater
   def self.execute
