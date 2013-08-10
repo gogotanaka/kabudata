@@ -7,6 +7,22 @@
 	  <%= stylesheet_link_tag    "application", :media => "all" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43073585-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 	</head>
 	<body>
 		<div id="fb-root"></div>
@@ -39,7 +55,9 @@
 			      <% end %>
 			    </div>
 			  </div>
-			  <ul id="menu" class="clearfix">
+			  <% if false %><ul id="menu" class="clearfix"><% end %>
+			  <ul id="footmenu" class="clearfix">
+			  	<li><%= link_to "TOP", root_path %></li>	
 			  	<li><%= link_to "投資顧問会社ランキング", page_consultant_path %></li>
 			  	<li><%= link_to "証券会社ランキング", page_brokerage_path %></li>
 			  	<li><%= link_to "投資家ブログランキング", blogs_path %></li>
@@ -47,6 +65,7 @@
 			  	<li><%= link_to "投資顧問会社口コミ掲示板", {controller: :boards, action: :index_consul, id: 1} %></li>
 			  	<li><%= link_to "仕手株急騰銘柄速報", page_rise_path %></li>
 			  	<li><%= link_to "お問い合わせ", page_inquiry_path %></li>	
+			  	<li><%= link_to "サイトマップ", page_sitemap_path %></li>	
 			  </ul>
 			  <div id="main_container" class="clearfix">
 				  <div id="side_menu">
@@ -120,7 +139,6 @@
 			  	<li><%= link_to "お問い合わせ", page_inquiry_path %></li>	
 			  	<li><%= link_to "サイトマップ", page_sitemap_path %></li>	
 			  </ul>
-
 			</div>
 		</div>
 	</body>

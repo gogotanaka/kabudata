@@ -1,3 +1,8 @@
+【記事一覧】<br>
+<% Piece.all.each do |piece|%>
+
+  タイトル:<%= piece.title %>:<%= link_to 'Destroy', piece, method: :delete, data: { confirm: 'Are you sure?' } %><br><br>
+<% end %>
 <%= form_for @piece, url: {action: 'create_piece'} do |f| %>
   <table class="inquiry_table">
     <tr>
