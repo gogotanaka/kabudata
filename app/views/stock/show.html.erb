@@ -9,13 +9,12 @@
     <div id="stock_table">
       <table class="">
         <tr><td>現在株価</td><td class="font_blod stock_table_td_align"><%= stock.price %></td></tr>
-        <tr><td>前日比</td><td class="stock_table_td_align"><%= stock.code %></td></tr>
+        <tr><td>前日比</td><td class="stock_table_td_align"><%= compare(stock.previousprice, stock.price) %></td></tr>
         <tr><td>前日終値</td><td class="stock_table_td_align"><%= stock.previousprice %></td></tr>
         <tr><td>始値</td><td class="stock_table_td_align"><%= stock.opening %></td></tr>
         <tr><td>高値</td><td class="stock_table_td_align"><%= stock.high %></td></tr>
         <tr><td>安値</td><td class="stock_table_td_align"><%= stock.low %></td></tr>
         <tr><td>出来高</td><td class="stock_table_td_align"><%= stock.volume %></td></tr>
-        <tr><td>売買代金</td><td class="stock_table_td_align"><%= stock.code %></td></tr>
       </table>
     </div>
     <div id="stock_chart_box">

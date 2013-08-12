@@ -35,11 +35,3 @@ end
 every 1.day do
   runner "BatchUpdate.blog_count"
 end
-#every :monday, :at => '4:30 am' do
-every 7.day do
-	runner "BatchUpdate.blog_count_week"
-end
-
-every 30.day do
-	runner "BatchUpdate.blog_count_month"
-end

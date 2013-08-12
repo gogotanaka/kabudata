@@ -86,9 +86,11 @@
 				      <% end %>
 				      <p style="color:#666666;margin-top:10px;">自薦、他薦は問いません！<br>ブログのアクセスアップに繋がると思いますのでお気軽にご登録して下さい！</p>
 				      <br><br><%= image_tag('banner_mini.jpg')%>
-				      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="株式投資ブログランキング"><img alt="Banner_mini" src="http://tousijyohou.jp/assets/banner_mini.jpg" /></a></textarea>
+				      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="投資家ブログランキング"><img alt="Banner_mini" src="http://tousijyohou.jp/assets/banner_mini.jpg" /></a></textarea>
 				      <br><br><%= image_tag('banner_large.jpg')%>
-				      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="株式投資ブログランキング"><img alt="Banner_laer" src="http://tousijyohou.jp/assets/banner_large.jpg" /></a></textarea>
+				      <textarea cols="30" rows="6"><a href="http://tousijyohou.jp/blogs" target="blank" title="投資家ブログランキング"><img alt="Banner_laer" src="http://tousijyohou.jp/assets/banner_large.jpg" /></a></textarea>
+				      <br><br><a href="http://tousijyohou.jp/blogs" target="blank" title="投資家ブログランキング">投資家ブログランキング</a>
+				      <textarea cols="30" rows="4"><a href="http://tousijyohou.jp/blogs" target="blank" title="投資家ブログランキング">投資家ブログランキング</a></textarea>
 				  		<br><br><%= image_tag('blog_new_bar.jpg')%><br>
 				      <% Blog.all.map{|x| x.entries}.flatten.sort_by{|a,b| a <=> b}[0..4].each do |entry| %>
 				        <div class="entry">  

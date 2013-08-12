@@ -105,4 +105,9 @@ class BoardsController < ApplicationController
     Board.find(params[:id]).comments.create(params[:comment])
     redirect_to :back
   end
+
+  def delete_comment
+    Comment.find(params[:id]).destroy
+    redirect_to :back
+  end
 end

@@ -1,0 +1,20 @@
+<h1>==↓管理画面===</h1>
+<table class="blog_table table-striped-blog">
+  <tr>
+    <th width='100px'>contents</th>
+    <th>ボード</th>
+    <th>送り主</th>
+    <th></th>
+
+    <th></th>
+  </tr>
+
+<% Comment.all.each do |comment| %>
+  <tr>
+    <td><%= truncate(comment.contents, length: 50) %></td>
+    <td><%= comment.board.title %></td>
+    <td><%= truncate(comment.sender, length: 50) %></td>
+    <td><%= link_to 'Destroy', delete_comment_board_path(comment.id), data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+

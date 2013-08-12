@@ -12,6 +12,7 @@ Kabudata::Application.routes.draw do
   resources :boards do
     member do
       post :post_comment
+      get :delete_comment
     end
     collection do
       get 'list'

@@ -95,12 +95,16 @@ class BlogsController < ApplicationController
     blog = Blog.find(params[:id])
     unless blog.ins.find_by_ip(ip)
       blog.ins.create(ip: ip)
+      blog.in =+ 1
+      blog.save
     end
     redirect_to blog_path(blog)
   end
 
   def out
     blog = Blog.find(params[:id])
+    blog.out =+ 1
+    blog.save
     redirect_to blog.url
   end
 
