@@ -2,7 +2,7 @@
   <%= image_tag("welcome_hot.jpg")%>
   <div id="stock_hot">
     <div id="yahoo_update">
-      <%= update_time(Stock.pluck(:updated_at).sort {|a, b| b <=> a }[200]) %>更新・値動き（yahooファイナンスより）
+      <%= update_time(Stock.pluck(:updated_at).sort {|a, b| b <=> a }[200] + 3600 * 9 + 1800) %>更新・値動き（yahooファイナンスより）
 
     </div>
     <table class="table table-striped">
