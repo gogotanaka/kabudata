@@ -14,9 +14,23 @@ module ApplicationHelper
 		wdays = ["日", "月", "火", "水", "木", "金", "土"]
 		time.strftime("%Y年%m月%d日") + "(" + wdays[time.wday] + ")" + "　" + time.strftime("%H:%M:%S")
 	end
+
+	def complete_date(time)
+		wdays = ["日", "月", "火", "水", "木", "金", "土"]
+		time.strftime("%Y年%m月%d日") + "(" + wdays[time.wday] + ")"
+	end
+
 	def update_time(time)
 		wdays = ["日", "月", "火", "水", "木", "金", "土"]
 		minutes = (time.strftime("%M").to_i / 15) * 15 == 0 ? "00" : (time.strftime("%M").to_i/15)*15
 		time.strftime("%Y年%m月%d日") + "(" + wdays[time.wday] + ")" + "　" + time.strftime("%H")+"時"+minutes.to_s + "分"
+	end
+
+	def week_count(array)
+		tmp = 0
+		array.each do |x|
+			tmp = tmp + x
+		end
+		tmp
 	end
 end
