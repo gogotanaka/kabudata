@@ -3,11 +3,10 @@
 </div>
 <%= image_tag('rise_bar.jpg')%>
 <% Piece.order("created_at DESC").limit(5).each do |piece| %>
-	<div class="piece clearfix">
+	<div class="piece">
 		<div class="title"><%= link_to piece.title, page_piece_path(id: piece.id), class: "title_text" %></div>
 		<br>
 		<%= piece.contents.html_safe %>
-		<p style="padding-top:30px; color:#999;float:right;"><%= complete_date(piece.updated_at + 32400) %></p>
 	</div>
 <% end %>
 <%= auto_discovery_link_tag(:rss, "http://iblog.com") %>

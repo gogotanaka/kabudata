@@ -32,7 +32,7 @@
       <% end %>
 
     </td>
-    <td><%= week_count(@blog.blog_counts.where('created_at >=?', Time.now - 604800).pluck(:view) || []) %></td>
+    <td><%= blog.blog_counts.where('created_at >=?', Time.now - 604800).pluck(:view).inject(:+) + blog.ins.count unless blog.blog_counts.where('created_at >=?', Time.now - 604800).pluck(:view).inject(:+).nil? %></td>
     <td><%= blog.out %></td>
     <td><%= blog.in %></td>
   </tr>
