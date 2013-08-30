@@ -24,13 +24,13 @@
         </div>
         <div class="field_block">
           <div class="field_label">過去一週間のイン</div>
-          <%= @blog.blog_counts.where('created_at >=?', Time.now - 604800).pluck(:view).inject(:+) %>
+          <%= week_count(@blog.blog_counts.where('created_at >=?', Time.now - 604800).pluck(:view) || []) %>
         </div>
         <div class="field_block">
           <div class="field_label">通算イン</div>
           <%= @blog.in %>
         </div>
-    <% url = "http://tousijyohou.jp/blogs/"+ @blog.id.to_s + "/count_in" %>
+    <% url = "http://localhost:3000/blogs/"+ @blog.id.to_s + "/count_in" %>
     <% s = (link_to image_tag("http://tousijyohou.jp/assets/banner_large.jpg", alt: '株に関する全ての情報を全て収集！完全無料で全て公開します。気になる銘柄、注目の銘柄、噂の銘柄に関する今後の動きも口コミ情報交換掲示板でチェックできます。'), url) %>
     <%= s %>
     <textarea cols="40" rows="6"><%= CGI::unescape(s) %></textarea>
