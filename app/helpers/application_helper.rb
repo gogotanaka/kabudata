@@ -22,7 +22,8 @@ module ApplicationHelper
 
 	def update_time(time)
 		wdays = ["日", "月", "火", "水", "木", "金", "土"]
-		time.strftime("%Y年%m月%d日") + "(" + wdays[time.wday] + ")" + "　" + time.strftime("%H")+ "時" + time.strftime("%M") + "分"
+		minutes = (time.strftime("%M").to_i / 15) * 15 == 0 ? "00" : (time.strftime("%M").to_i/15)*15
+		time.strftime("%Y年%m月%d日") + "(" + wdays[time.wday] + ")" + "　" + time.strftime("%H")+"時"+minutes.to_s + "分"
 	end
 
 	def week_count(array)
