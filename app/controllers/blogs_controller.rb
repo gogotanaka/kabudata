@@ -103,7 +103,7 @@ class BlogsController < ApplicationController
 
   def out
     blog = Blog.find(params[:id])
-    blog.out =+ 1
+    blog.out = blog.out + 1
     blog.save
     redirect_to blog.url
   end
